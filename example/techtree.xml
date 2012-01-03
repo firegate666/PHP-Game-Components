@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <techtree name="Example Tech Tree">
 	<description>This is an example tech tree</description>
-	
+
 	<techtreeitem name="">
 		<description></description>
 	</techtreeitem>
-	
+
 </techtree>
