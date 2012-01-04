@@ -22,6 +22,12 @@ class TechTreeItem
 {
 
 	/**
+	 * 
+	 * @var String
+	 */
+	protected $key;
+	
+	/**
 	 *
 	 * @var String
 	 */
@@ -35,8 +41,73 @@ class TechTreeItem
 
 	/**
 	 *
-	 * @var TechTreeDependenc[]
+	 * @var array
 	 */
 	protected $dependencies = array ();
+	
+	/**
+	 * 
+	 * @param String $key
+	 * @return TechTreeItem $this
+	 */
+	public function addDependency($key)
+	{
+		$this->dependencies[$key] = $key;
+		return $this;
+	}
+
+	/**
+	 * @return the $key
+	 */
+	public function getKey()
+	{
+		return $this->key;
+	}
+
+	/**
+	 * @return the $name
+	 */
+	public function getName()
+	{
+		return $this->name;
+	}
+
+	/**
+	 * @return the $description
+	 */
+	public function getDescription()
+	{
+		return $this->description;
+	}
+
+	/**
+	 * @param string $key
+	 * @return TechTreeItem $this
+	 */
+	public function setKey($key)
+	{
+		$this->key = $key;
+		return $this;
+	}
+
+	/**
+	 * @param string $name
+	 * @return TechTreeItem $this
+	 */
+	public function setName($name)
+	{
+		$this->name = $name;
+		return $this;
+	}
+
+	/**
+	 * @param string $description
+	 * @return TechTreeItem $this
+	 */
+	public function setDescription($description)
+	{
+		$this->description = $description;
+		return $this;
+	}
 
 }
