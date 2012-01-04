@@ -16,14 +16,34 @@
  *
  **************************************************************************/
 
-namespace biz\behnke\game\techtree;
+// autoloader bootstrap
+require_once 'appBase/index.php';
 
-class TechTreeItemDependency implements TechTreeDependency
+require_once 'appBase/cx/php/game/test/TechTreeTest.php';
+
+/**
+ * Static test suite.
+ */
+class testSuite extends PHPUnit_Framework_TestSuite
 {
 
 	/**
-	 *
-	 * @var TechTreeItem
+	 * Constructs the test suite handler.
 	 */
-	protected $techTreeItem;
+	public function __construct()
+	{
+		$this->setName ( 'testSuite' );
+		
+		$this->addTestSuite ( 'TechTreeTest' );
+	
+	}
+
+	/**
+	 * Creates the suite.
+	 */
+	public static function suite()
+	{
+		return new self ();
+	}
 }
+

@@ -16,8 +16,14 @@
  *
  **************************************************************************/
 
-namespace biz\behnke\game\techtree;
+namespace cx\php\game\techtree;
 
-interface TechTreeDependency
+class TechTreeItemDependency implements TechTreeDependency
 {
+
+	/**
+	 *
+	 * @var TechTreeItem
+	 */
+	protected $techTreeItem;
 }

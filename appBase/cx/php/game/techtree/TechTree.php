@@ -16,7 +16,7 @@
  *
  **************************************************************************/
 
-namespace biz\behnke\game\techtree;
+namespace cx\php\game\techtree;
 
 class TechTree
 {

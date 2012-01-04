@@ -36,7 +36,7 @@ class TechTreeTest extends PHPUnit_Framework_TestCase
 	protected function setUp()
 	{
 		parent::setUp ();
-		$this->tt = new \biz\behnke\game\techtree\TechTree ();
+		$this->tt = new \cx\php\game\techtree\TechTree ();
 		// TODO Auto-generated TechTreeTest::setUp()
 	}
 
