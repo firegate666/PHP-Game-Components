@@ -38,4 +38,15 @@ spl_autoload_register ( function ($class_name)
 		require_once $class_name;
 	}
 } );
-?>
+
+/**
+ * var_export all function arguments wrapped in <pre></pre>
+ */
+function debug()
+{
+	print '<pre>';
+	foreach (func_get_args() as $k=>$v){
+		var_export($v);
+	}
+	print '</pre>';
+}
