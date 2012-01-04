@@ -16,7 +16,10 @@
  *
  **************************************************************************/
 
-require_once 'biz/behnke/game/test/TechTreeTest.php';
+// autoloader bootstrap
+require_once 'appBase/index.php';
+
+require_once 'appBase/biz/behnke/game/test/TechTreeTest.php';
 
 /**
  * Static test suite.

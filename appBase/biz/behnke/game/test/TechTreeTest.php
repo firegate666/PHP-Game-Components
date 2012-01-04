@@ -17,7 +17,6 @@
  **************************************************************************/
 
 require_once 'PHPUnit/Framework/TestCase.php';
-require_once __DIR__ . '/../techtree/TechTree.php';
 
 /**
  * test case.
