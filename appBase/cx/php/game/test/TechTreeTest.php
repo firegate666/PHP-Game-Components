@@ -17,6 +17,7 @@
  **************************************************************************/
 
 require_once 'PHPUnit/Framework/TestCase.php';
+use \cx\php\game\techtree\TechTree;
 
 /**
  * test case.
@@ -36,7 +37,7 @@ class TechTreeTest extends PHPUnit_Framework_TestCase
 	protected function setUp()
 	{
 		parent::setUp ();
-		$this->tt = new \cx\php\game\techtree\TechTree ();
+		$this->tt = new TechTree ();
 		// TODO Auto-generated TechTreeTest::setUp()
 	}
 
