@@ -26,29 +26,30 @@ abstract class TechTreeFactory
 	protected static $singleton;
 
 	/**
-	 *
 	 * hide constructor from public
 	 */
 	private function __construct()
 	{
-
+	
 	}
 
 	/**
-	 * @param mixed $source
+	 *
+	 * @param $source mixed       	
 	 * @return TechTree
 	 */
 	abstract function loadTree($source = null);
 
 	/**
+	 *
 	 * @return TechTreeFactory
 	 */
 	public static function getInstance()
 	{
 		if (is_null ( static::$singleton ))
 		{
-			$class_name = get_called_class();
-			static::$singleton = new $class_name();
+			$class_name = get_called_class ();
+			static::$singleton = new $class_name ();
 		}
 		return static::$singleton;
 	}

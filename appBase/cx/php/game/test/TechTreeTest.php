@@ -17,7 +17,7 @@
  **************************************************************************/
 
 require_once 'PHPUnit/Framework/TestCase.php';
-use \cx\php\game\techtree\TechTree;
+use cx\php\game\techtree\TechTree;
 
 /**
  * test case.

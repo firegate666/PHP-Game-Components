@@ -45,8 +45,9 @@ spl_autoload_register ( function ($class_name)
 function debug()
 {
 	print '<pre>';
-	foreach (func_get_args() as $k=>$v){
-		var_export($v);
+	foreach ( func_get_args () as $k => $v )
+	{
+		var_export ( $v );
 	}
 	print '</pre>';
 }

@@ -15,7 +15,7 @@
  * limitations under the License.
  *
  **************************************************************************/
- 
+
 namespace cx\php\game\techtree;
 
 class TechTreeItemExistsException extends \Exception

@@ -15,26 +15,28 @@
  * limitations under the License.
  *
  **************************************************************************/
- 
-define('DEBUG', true);
-require_once __DIR__.'/../appBase/index.php';
+
+define ( 'DEBUG', true );
+require_once __DIR__ . '/../appBase/index.php';
 
 use cx\php\game\techtree\XMLTechTreeFactory;
 
-$ttf = XMLTechTreeFactory::getInstance();
+$ttf = XMLTechTreeFactory::getInstance ();
 
-$techTreeXML = __DIR__.'/techtree.xml';
-$tt = $ttf->loadTree($techTreeXML);
+$techTreeXML = __DIR__ . '/techtree.xml';
+$tt = $ttf->loadTree ( $techTreeXML );
 
 ?>
 <!DOCTYPE html>
 <html>
-<head><title>Example</title></head>
+<head>
+<title>Example</title>
+</head>
 <body>
-<h1>Example</h1>
-<p>is running ...</p>
-<?php 
-debug($tt);
+	<h1>Example</h1>
+	<p>is running ...</p>
+<?php
+debug ( $tt );
 ?>
 </body>
 </html>

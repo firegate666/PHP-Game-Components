@@ -5,16 +5,16 @@
 	<techtreeitem key="WPN_KNIFE" name="Knife">
 		<description>This is a knife.</description>
 	</techtreeitem>
-	
+
 	<techtreeitem key="WPN_SWORD" name="Sword">
 		<description>This is a sword.</description>
-		<dependson key="WPN_KNIFE"/>
+		<dependson key="WPN_KNIFE" />
 	</techtreeitem>
-	
+
 	<techtreeitem key="WPN_BOW" name="Bow">
 		<description>This is a bow.</description>
-		<dependson key="WPN_KNIFE"/>
-		<dependson key="WPN_SWORD"/>
+		<dependson key="WPN_KNIFE" />
+		<dependson key="WPN_SWORD" />
 	</techtreeitem>
 
 </techtree>

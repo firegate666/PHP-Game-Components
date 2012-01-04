@@ -35,13 +35,14 @@ class XMLTechTreeFactory extends TechTreeFactory
 	 */
 	public function loadTree($source = null)
 	{
-		$xml = new \SimpleXMLElement($source, 0, true);
-		$tt = new TechTree();
-		$tt->setName((string)$xml['name']);
-		$tt->setDescription((string)$xml->description);
+		$xml = new \SimpleXMLElement ( $source, 0, true );
+		$tt = new TechTree ();
+		$tt->setName ( ( string ) $xml ['name'] );
+		$tt->setDescription ( ( string ) $xml->description );
 		
-		foreach($xml->techtreeitem as $entryXml){
-			$tt->addItem($this->getTechTreeItem($entryXml)); // TechTreeItemExistsException
+		foreach ( $xml->techtreeitem as $entryXml )
+		{
+			$tt->addItem ( $this->getTechTreeItem ( $entryXml ) ); // TechTreeItemExistsException
 		}
 		
 		return $tt;
@@ -50,22 +51,22 @@ class XMLTechTreeFactory extends TechTreeFactory
 
 	/**
 	 * create techtree item
-	 * 
-	 * @param \SimpleXMLElement $xml
+	 *
+	 * @param $xml \SimpleXMLElement       	
 	 * @return TechTreeItem
 	 */
 	protected function getTechTreeItem(\SimpleXMLElement $xml)
 	{
-		$tti = new TechTreeItem();
-		$tti->setKey((string)$xml['key'])
-			->setName((string)$xml['name'])
-			->setDescription((string)$xml->description);
+		$tti = new TechTreeItem ();
+		$tti->setKey ( ( string ) $xml ['key'] )
+			->setName ( ( string ) $xml ['name'] )
+			->setDescription ( ( string ) $xml->description );
 		
-		foreach($xml->dependson as $dependency)
+		foreach ( $xml->dependson as $dependency )
 		{
-			$tti->addDependency((string)$dependency['key']);
+			$tti->addDependency ( ( string ) $dependency ['key'] );
 		}
-
+		
 		return $tti;
 	}
 
