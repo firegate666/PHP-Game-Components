@@ -1,3 +1,29 @@
+function calculateFacingAngle(x2, y2, x1, y1)
+{
+	return Math.atan2(y2-y1, x2-x1) * (180 / Math.PI);
+}
+
+function calculateFacing(angle)
+{
+	var step = 22.5;
+	if (angle > 0-step && angle < 0+step)
+		return 'e';
+	else if (angle > 45-step && angle < 45+step)
+		return 'se';
+	else if (angle > 90-step && angle < 90+step)
+		return 's';
+	else if (angle > 135-step && angle < 135+step)
+		return 'sw';
+	else if (angle > 180-step || angle < -180+step)
+		return 'w';
+	else if (angle > -135-step && angle < -135+step)
+		return 'nw';
+	else if (angle > -90-step && angle < -90+step)
+		return 'n';
+	else if (angle > -45-step && angle < -45+step)
+		return 'ne';
+}
+
 function pad(number, length) {
 
 	var str = '' + number;
