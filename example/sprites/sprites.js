@@ -1,3 +1,5 @@
+var sprites_frames_per_second = 25;
+
 function calculateFacingAngle(x2, y2, x1, y1)
 {
 	return Math.atan2(y2-y1, x2-x1) * (180 / Math.PI);
@@ -60,62 +62,86 @@ function preloadImages() {
 
 /**
  * flip through the frames and switch sprite image
- * 
- * @param sprite
  */
-function animate(sprite) {
+function animate() {
 	window.setTimeout(function() {
-		var start = jQuery(sprite).data('start');
-		var type = jQuery(sprite).attr('name');
-		var picnum = start + "";
-		picnum = pad(picnum, 2);
+		jQuery('.sprite').each(
+				function() {
+					var start = jQuery(this).data('start');
+					var type = jQuery(this).attr('name');
+					var direction = jQuery(this).attr('direction');
+					var picnum = start + "";
+					picnum = pad(picnum, 2);
 
-		jQuery(sprite).css('background-image',
-				'url("flying_soul_blonde/ne' + picnum + '.png")');
-		start++;
-		if (start >= sprites[type].maxFrame)
-			start = sprites[type].minFrame;
-		jQuery(sprite).data('start', start);
-		animate(sprite);
-	}, 100);
+					jQuery(this).css(
+							'background-image',
+							'url("' + type + '/' + direction + picnum
+									+ '.png")');
+					start++;
+					if (start >= sprites[type].maxFrame)
+						start = sprites[type].minFrame;
+					jQuery(this).data('start', start);
+					animate(this);
+				});
+	}, 1000 / sprites_frames_per_second);
 }
 
 jQuery(function() {
 
-	jQuery('html').click(function(event) {
-		var x = event.pageX;
-		var y = event.pageY;
-		console.log({
-			top : y + 'px',
-			left : x + 'px'
-		});
-		jQuery('.player').each(function() {
-			jQuery(this).animate({
-				top : (y - (jQuery(this).height() / 2)) + 'px',
-				left : (x - (jQuery(this).width() / 2)) + 'px'
-			}, 5000, 'swing', function() {
-				// complete
-			});
-		});
+	jQuery('html').click(
+			function(event) {
+				var x = event.pageX;
+				var y = event.pageY;
 
-	});
+				jQuery('.player').each(
+						function() {
+
+							var position = jQuery(this).position();
+							var halfWidth = jQuery(this).width() / 2;
+							var halfHeight = jQuery(this).height() / 2;
+
+							// source center
+							var position_x = position.left + halfWidth;
+							var position_y = position.top + halfHeight;
+
+							// destination top/left
+							var position_x2 = x - halfWidth;
+							var position_y2 = y - halfHeight;
+
+							var angle = calculateFacingAngle(x, y, position_x, position_y);
+							var facing = calculateFacing(angle);
+
+							jQuery(this).attr('direction', facing);
+							
+							jQuery(this).clearQueue().animate({
+								top : position_y2 + 'px',
+								left : position_x2 + 'px'
+							}, 5000, 'swing', function() {
+								// complete
+							});
+						});
+
+			});
 
 	preloadImages();
 	var zIndex = 1;
 
+	// initialize all sprites
 	jQuery('.sprite').each(function() {
 		var type = jQuery(this).attr('name');
+		var direction = jQuery(this).attr('direction');
 
 		jQuery(this).data('start', 0);
 
 		jQuery(this).css({
 			width : sprites[type].style.width + 'px',
 			height : sprites[type].style.height + 'px',
-			backgroundImage : 'url("' + type + '/ne00.png")',
+			backgroundImage : 'url("' + type + '/' + direction + '00.png")',
 			zIndex : zIndex++
 		});
 
-		animate(this);
 	});
+	// start animation loop
+	animate();
 
 });
