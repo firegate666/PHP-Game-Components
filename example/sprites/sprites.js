@@ -1,28 +1,26 @@
 var sprites_frames_per_second = 25;
 
-function calculateFacingAngle(x2, y2, x1, y1)
-{
-	return Math.atan2(y2-y1, x2-x1) * (180 / Math.PI);
+function calculateFacingAngle(x2, y2, x1, y1) {
+	return Math.atan2(y2 - y1, x2 - x1) * (180 / Math.PI);
 }
 
-function calculateFacing(angle)
-{
+function calculateFacing(angle) {
 	var step = 22.5;
-	if (angle > 0-step && angle < 0+step)
+	if (angle > 0 - step && angle < 0 + step)
 		return 'e';
-	else if (angle > 45-step && angle < 45+step)
+	else if (angle > 45 - step && angle < 45 + step)
 		return 'se';
-	else if (angle > 90-step && angle < 90+step)
+	else if (angle > 90 - step && angle < 90 + step)
 		return 's';
-	else if (angle > 135-step && angle < 135+step)
+	else if (angle > 135 - step && angle < 135 + step)
 		return 'sw';
-	else if (angle > 180-step || angle < -180+step)
+	else if (angle > 180 - step || angle < -180 + step)
 		return 'w';
-	else if (angle > -135-step && angle < -135+step)
+	else if (angle > -135 - step && angle < -135 + step)
 		return 'nw';
-	else if (angle > -90-step && angle < -90+step)
+	else if (angle > -90 - step && angle < -90 + step)
 		return 'n';
-	else if (angle > -45-step && angle < -45+step)
+	else if (angle > -45 - step && angle < -45 + step)
 		return 'ne';
 }
 
@@ -52,8 +50,8 @@ var sprites = {
  * preload all sprite frames
  */
 function preloadImages() {
-	var directions = ['n', 'ne', 'e', 'se', 's', 'sw', 'w', 'nw'];
-	jQuery.each(directions, function(k2, v2){
+	var directions = [ 'n', 'ne', 'e', 'se', 's', 'sw', 'w', 'nw' ];
+	jQuery.each(directions, function(k2, v2) {
 		jQuery.each(sprites, function(k, v) {
 			for (i = v.minFrame; i < v.maxFrame; i++) {
 				var img = new Image();
@@ -91,40 +89,38 @@ function animate() {
 
 jQuery(function() {
 
-	jQuery('html').click(
-			function(event) {
-				var x = event.pageX;
-				var y = event.pageY;
+	jQuery('html').click(function(event) {
+		var x = event.pageX;
+		var y = event.pageY;
 
-				jQuery('.player').each(
-						function() {
+		jQuery('.player').each(function() {
 
-							var position = jQuery(this).position();
-							var halfWidth = jQuery(this).width() / 2;
-							var halfHeight = jQuery(this).height() / 2;
+			var position = jQuery(this).position();
+			var halfWidth = jQuery(this).width() / 2;
+			var halfHeight = jQuery(this).height() / 2;
 
-							// source center
-							var position_x = position.left + halfWidth;
-							var position_y = position.top + halfHeight;
+			// source center
+			var position_x = position.left + halfWidth;
+			var position_y = position.top + halfHeight;
 
-							// destination top/left
-							var position_x2 = x - halfWidth;
-							var position_y2 = y - halfHeight;
+			// destination top/left
+			var position_x2 = x - halfWidth;
+			var position_y2 = y - halfHeight;
 
-							var angle = calculateFacingAngle(x, y, position_x, position_y);
-							var facing = calculateFacing(angle);
+			var angle = calculateFacingAngle(x, y, position_x, position_y);
+			var facing = calculateFacing(angle);
 
-							jQuery(this).attr('direction', facing);
-							
-							jQuery(this).clearQueue().animate({
-								top : position_y2 + 'px',
-								left : position_x2 + 'px'
-							}, 5000, 'swing', function() {
-								// complete
-							});
-						});
+			jQuery(this).attr('direction', facing);
 
+			jQuery(this).clearQueue().animate({
+				top : position_y2 + 'px',
+				left : position_x2 + 'px'
+			}, 5000, 'swing', function() {
+				// complete
 			});
+		});
+
+	});
 
 	preloadImages();
 	var zIndex = 1;
