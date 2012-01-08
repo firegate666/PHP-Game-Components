@@ -52,11 +52,14 @@ var sprites = {
  * preload all sprite frames
  */
 function preloadImages() {
-	jQuery.each(sprites, function(k, v) {
-		for (i = v.minFrame; i < v.maxFrame; i++) {
-			var img = new Image();
-			img.src = k + '/ne' + pad(i, 2) + '.png';
-		}
+	var directions = ['n', 'ne', 'e', 'se', 's', 'sw', 'w', 'nw'];
+	jQuery.each(directions, function(k2, v2){
+		jQuery.each(sprites, function(k, v) {
+			for (i = v.minFrame; i < v.maxFrame; i++) {
+				var img = new Image();
+				img.src = k + '/' + v2 + pad(i, 2) + '.png';
+			}
+		})
 	})
 }
 
