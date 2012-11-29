@@ -132,6 +132,7 @@ function Sprite(sprite_data)
 		if (properties.start >= properties.sprite_data.maxFrame)
 			properties.start = properties.sprite_data.minFrame;
 
+		position = $(properties.object).position();
 		self.setAnimationClass();
 
 		return this;
