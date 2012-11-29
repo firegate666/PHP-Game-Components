@@ -1,0 +1,26 @@
+@CHARSET "UTF-8";
+
+#controls {
+	border-bottom: 1px solid green;
+}
+
+#controls button {
+	height: 64px;
+}
+
+#game {
+	margin: 10px;
+	border: 1px solid red;
+	height: 400px;
+	width: 800px;
+	position: absolute;
+}
+
+.sprite {
+	position: absolute;
+}
+
+.sprite.player {
+	border-radius: 64px;
+	box-shadow: 0px 0px 8px #66FFFF;
+}

@@ -1,0 +1,149 @@
+@CHARSET "UTF-8";
+
+#controls button.flying_soul_blonde {
+	background: url("../flying_soul_blonde/e00.png");
+	background-size: 64px 64px;
+	background-repeat: no-repeat;
+	padding-left: 50px;
+}
+
+.sprite.flying_soul_blonde {
+	height: 128px;
+	width: 128px;
+}
+
+.sprite.flying_soul_blonde.s_00 {background-image: url("../flying_soul_blonde/s00.png")}
+.sprite.flying_soul_blonde.s_01 {background-image: url("../flying_soul_blonde/s01.png")}
+.sprite.flying_soul_blonde.s_02 {background-image: url("../flying_soul_blonde/s02.png")}
+.sprite.flying_soul_blonde.s_03 {background-image: url("../flying_soul_blonde/s03.png")}
+.sprite.flying_soul_blonde.s_04 {background-image: url("../flying_soul_blonde/s04.png")}
+.sprite.flying_soul_blonde.s_05 {background-image: url("../flying_soul_blonde/s05.png")}
+.sprite.flying_soul_blonde.s_06 {background-image: url("../flying_soul_blonde/s06.png")}
+.sprite.flying_soul_blonde.s_07 {background-image: url("../flying_soul_blonde/s07.png")}
+.sprite.flying_soul_blonde.s_08 {background-image: url("../flying_soul_blonde/s08.png")}
+.sprite.flying_soul_blonde.s_09 {background-image: url("../flying_soul_blonde/s09.png")}
+.sprite.flying_soul_blonde.s_10 {background-image: url("../flying_soul_blonde/s10.png")}
+.sprite.flying_soul_blonde.s_11 {background-image: url("../flying_soul_blonde/s11.png")}
+.sprite.flying_soul_blonde.s_12 {background-image: url("../flying_soul_blonde/s12.png")}
+.sprite.flying_soul_blonde.s_13 {background-image: url("../flying_soul_blonde/s13.png")}
+.sprite.flying_soul_blonde.s_14 {background-image: url("../flying_soul_blonde/s14.png")}
+.sprite.flying_soul_blonde.s_15 {background-image: url("../flying_soul_blonde/s15.png")}
+
+.sprite.flying_soul_blonde.n_00 {background-image: url("../flying_soul_blonde/n00.png")}
+.sprite.flying_soul_blonde.n_01 {background-image: url("../flying_soul_blonde/n01.png")}
+.sprite.flying_soul_blonde.n_02 {background-image: url("../flying_soul_blonde/n02.png")}
+.sprite.flying_soul_blonde.n_03 {background-image: url("../flying_soul_blonde/n03.png")}
+.sprite.flying_soul_blonde.n_04 {background-image: url("../flying_soul_blonde/n04.png")}
+.sprite.flying_soul_blonde.n_05 {background-image: url("../flying_soul_blonde/n05.png")}
+.sprite.flying_soul_blonde.n_06 {background-image: url("../flying_soul_blonde/n06.png")}
+.sprite.flying_soul_blonde.n_07 {background-image: url("../flying_soul_blonde/n07.png")}
+.sprite.flying_soul_blonde.n_08 {background-image: url("../flying_soul_blonde/n08.png")}
+.sprite.flying_soul_blonde.n_09 {background-image: url("../flying_soul_blonde/n09.png")}
+.sprite.flying_soul_blonde.n_10 {background-image: url("../flying_soul_blonde/n10.png")}
+.sprite.flying_soul_blonde.n_11 {background-image: url("../flying_soul_blonde/n11.png")}
+.sprite.flying_soul_blonde.n_12 {background-image: url("../flying_soul_blonde/n12.png")}
+.sprite.flying_soul_blonde.n_13 {background-image: url("../flying_soul_blonde/n13.png")}
+.sprite.flying_soul_blonde.n_14 {background-image: url("../flying_soul_blonde/n14.png")}
+.sprite.flying_soul_blonde.n_15 {background-image: url("../flying_soul_blonde/n15.png")}
+
+.sprite.flying_soul_blonde.e_00 {background-image: url("../flying_soul_blonde/e00.png")}
+.sprite.flying_soul_blonde.e_01 {background-image: url("../flying_soul_blonde/e01.png")}
+.sprite.flying_soul_blonde.e_02 {background-image: url("../flying_soul_blonde/e02.png")}
+.sprite.flying_soul_blonde.e_03 {background-image: url("../flying_soul_blonde/e03.png")}
+.sprite.flying_soul_blonde.e_04 {background-image: url("../flying_soul_blonde/e04.png")}
+.sprite.flying_soul_blonde.e_05 {background-image: url("../flying_soul_blonde/e05.png")}
+.sprite.flying_soul_blonde.e_06 {background-image: url("../flying_soul_blonde/e06.png")}
+.sprite.flying_soul_blonde.e_07 {background-image: url("../flying_soul_blonde/e07.png")}
+.sprite.flying_soul_blonde.e_08 {background-image: url("../flying_soul_blonde/e08.png")}
+.sprite.flying_soul_blonde.e_09 {background-image: url("../flying_soul_blonde/e09.png")}
+.sprite.flying_soul_blonde.e_10 {background-image: url("../flying_soul_blonde/e10.png")}
+.sprite.flying_soul_blonde.e_11 {background-image: url("../flying_soul_blonde/e11.png")}
+.sprite.flying_soul_blonde.e_12 {background-image: url("../flying_soul_blonde/e12.png")}
+.sprite.flying_soul_blonde.e_13 {background-image: url("../flying_soul_blonde/e13.png")}
+.sprite.flying_soul_blonde.e_14 {background-image: url("../flying_soul_blonde/e14.png")}
+.sprite.flying_soul_blonde.e_15 {background-image: url("../flying_soul_blonde/e15.png")}
+
+.sprite.flying_soul_blonde.w_00 {background-image: url("../flying_soul_blonde/w00.png")}
+.sprite.flying_soul_blonde.w_01 {background-image: url("../flying_soul_blonde/w01.png")}
+.sprite.flying_soul_blonde.w_02 {background-image: url("../flying_soul_blonde/w02.png")}
+.sprite.flying_soul_blonde.w_03 {background-image: url("../flying_soul_blonde/w03.png")}
+.sprite.flying_soul_blonde.w_04 {background-image: url("../flying_soul_blonde/w04.png")}
+.sprite.flying_soul_blonde.w_05 {background-image: url("../flying_soul_blonde/w05.png")}
+.sprite.flying_soul_blonde.w_06 {background-image: url("../flying_soul_blonde/w06.png")}
+.sprite.flying_soul_blonde.w_07 {background-image: url("../flying_soul_blonde/w07.png")}
+.sprite.flying_soul_blonde.w_08 {background-image: url("../flying_soul_blonde/w08.png")}
+.sprite.flying_soul_blonde.w_09 {background-image: url("../flying_soul_blonde/w09.png")}
+.sprite.flying_soul_blonde.w_10 {background-image: url("../flying_soul_blonde/w10.png")}
+.sprite.flying_soul_blonde.w_11 {background-image: url("../flying_soul_blonde/w11.png")}
+.sprite.flying_soul_blonde.w_12 {background-image: url("../flying_soul_blonde/w12.png")}
+.sprite.flying_soul_blonde.w_13 {background-image: url("../flying_soul_blonde/w13.png")}
+.sprite.flying_soul_blonde.w_14 {background-image: url("../flying_soul_blonde/w14.png")}
+.sprite.flying_soul_blonde.w_15 {background-image: url("../flying_soul_blonde/w15.png")}
+
+.sprite.flying_soul_blonde.sw_00 {background-image: url("../flying_soul_blonde/sw00.png")}
+.sprite.flying_soul_blonde.sw_01 {background-image: url("../flying_soul_blonde/sw01.png")}
+.sprite.flying_soul_blonde.sw_02 {background-image: url("../flying_soul_blonde/sw02.png")}
+.sprite.flying_soul_blonde.sw_03 {background-image: url("../flying_soul_blonde/sw03.png")}
+.sprite.flying_soul_blonde.sw_04 {background-image: url("../flying_soul_blonde/sw04.png")}
+.sprite.flying_soul_blonde.sw_05 {background-image: url("../flying_soul_blonde/sw05.png")}
+.sprite.flying_soul_blonde.sw_06 {background-image: url("../flying_soul_blonde/sw06.png")}
+.sprite.flying_soul_blonde.sw_07 {background-image: url("../flying_soul_blonde/sw07.png")}
+.sprite.flying_soul_blonde.sw_08 {background-image: url("../flying_soul_blonde/sw08.png")}
+.sprite.flying_soul_blonde.sw_09 {background-image: url("../flying_soul_blonde/sw09.png")}
+.sprite.flying_soul_blonde.sw_10 {background-image: url("../flying_soul_blonde/sw10.png")}
+.sprite.flying_soul_blonde.sw_11 {background-image: url("../flying_soul_blonde/sw11.png")}
+.sprite.flying_soul_blonde.sw_12 {background-image: url("../flying_soul_blonde/sw12.png")}
+.sprite.flying_soul_blonde.sw_13 {background-image: url("../flying_soul_blonde/sw13.png")}
+.sprite.flying_soul_blonde.sw_14 {background-image: url("../flying_soul_blonde/sw14.png")}
+.sprite.flying_soul_blonde.sw_15 {background-image: url("../flying_soul_blonde/sw15.png")}
+
+.sprite.flying_soul_blonde.nw_00 {background-image: url("../flying_soul_blonde/nw00.png")}
+.sprite.flying_soul_blonde.nw_01 {background-image: url("../flying_soul_blonde/nw01.png")}
+.sprite.flying_soul_blonde.nw_02 {background-image: url("../flying_soul_blonde/nw02.png")}
+.sprite.flying_soul_blonde.nw_03 {background-image: url("../flying_soul_blonde/nw03.png")}
+.sprite.flying_soul_blonde.nw_04 {background-image: url("../flying_soul_blonde/nw04.png")}
+.sprite.flying_soul_blonde.nw_05 {background-image: url("../flying_soul_blonde/nw05.png")}
+.sprite.flying_soul_blonde.nw_06 {background-image: url("../flying_soul_blonde/nw06.png")}
+.sprite.flying_soul_blonde.nw_07 {background-image: url("../flying_soul_blonde/nw07.png")}
+.sprite.flying_soul_blonde.nw_08 {background-image: url("../flying_soul_blonde/nw08.png")}
+.sprite.flying_soul_blonde.nw_09 {background-image: url("../flying_soul_blonde/nw09.png")}
+.sprite.flying_soul_blonde.nw_10 {background-image: url("../flying_soul_blonde/nw10.png")}
+.sprite.flying_soul_blonde.nw_11 {background-image: url("../flying_soul_blonde/nw11.png")}
+.sprite.flying_soul_blonde.nw_12 {background-image: url("../flying_soul_blonde/nw12.png")}
+.sprite.flying_soul_blonde.nw_13 {background-image: url("../flying_soul_blonde/nw13.png")}
+.sprite.flying_soul_blonde.nw_14 {background-image: url("../flying_soul_blonde/nw14.png")}
+.sprite.flying_soul_blonde.nw_15 {background-image: url("../flying_soul_blonde/nw15.png")}
+
+.sprite.flying_soul_blonde.se_00 {background-image: url("../flying_soul_blonde/se00.png")}
+.sprite.flying_soul_blonde.se_01 {background-image: url("../flying_soul_blonde/se01.png")}
+.sprite.flying_soul_blonde.se_02 {background-image: url("../flying_soul_blonde/se02.png")}
+.sprite.flying_soul_blonde.se_03 {background-image: url("../flying_soul_blonde/se03.png")}
+.sprite.flying_soul_blonde.se_04 {background-image: url("../flying_soul_blonde/se04.png")}
+.sprite.flying_soul_blonde.se_05 {background-image: url("../flying_soul_blonde/se05.png")}
+.sprite.flying_soul_blonde.se_06 {background-image: url("../flying_soul_blonde/se06.png")}
+.sprite.flying_soul_blonde.se_07 {background-image: url("../flying_soul_blonde/se07.png")}
+.sprite.flying_soul_blonde.se_08 {background-image: url("../flying_soul_blonde/se08.png")}
+.sprite.flying_soul_blonde.se_09 {background-image: url("../flying_soul_blonde/se09.png")}
+.sprite.flying_soul_blonde.se_10 {background-image: url("../flying_soul_blonde/se10.png")}
+.sprite.flying_soul_blonde.se_11 {background-image: url("../flying_soul_blonde/se11.png")}
+.sprite.flying_soul_blonde.se_12 {background-image: url("../flying_soul_blonde/se12.png")}
+.sprite.flying_soul_blonde.se_13 {background-image: url("../flying_soul_blonde/se13.png")}
+.sprite.flying_soul_blonde.se_14 {background-image: url("../flying_soul_blonde/se14.png")}
+.sprite.flying_soul_blonde.se_15 {background-image: url("../flying_soul_blonde/se15.png")}
+
+.sprite.flying_soul_blonde.ne_00 {background-image: url("../flying_soul_blonde/ne00.png")}
+.sprite.flying_soul_blonde.ne_01 {background-image: url("../flying_soul_blonde/ne01.png")}
+.sprite.flying_soul_blonde.ne_02 {background-image: url("../flying_soul_blonde/ne02.png")}
+.sprite.flying_soul_blonde.ne_03 {background-image: url("../flying_soul_blonde/ne03.png")}
+.sprite.flying_soul_blonde.ne_04 {background-image: url("../flying_soul_blonde/ne04.png")}
+.sprite.flying_soul_blonde.ne_05 {background-image: url("../flying_soul_blonde/ne05.png")}
+.sprite.flying_soul_blonde.ne_06 {background-image: url("../flying_soul_blonde/ne06.png")}
+.sprite.flying_soul_blonde.ne_07 {background-image: url("../flying_soul_blonde/ne07.png")}
+.sprite.flying_soul_blonde.ne_08 {background-image: url("../flying_soul_blonde/ne08.png")}
+.sprite.flying_soul_blonde.ne_09 {background-image: url("../flying_soul_blonde/ne09.png")}
+.sprite.flying_soul_blonde.ne_10 {background-image: url("../flying_soul_blonde/ne10.png")}
+.sprite.flying_soul_blonde.ne_11 {background-image: url("../flying_soul_blonde/ne11.png")}
+.sprite.flying_soul_blonde.ne_12 {background-image: url("../flying_soul_blonde/ne12.png")}
+.sprite.flying_soul_blonde.ne_13 {background-image: url("../flying_soul_blonde/ne13.png")}
+.sprite.flying_soul_blonde.ne_14 {background-image: url("../flying_soul_blonde/ne14.png")}
+.sprite.flying_soul_blonde.ne_15 {background-image: url("../flying_soul_blonde/ne15.png")}
