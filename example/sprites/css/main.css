@@ -1,6 +1,8 @@
+html, body {
+	overflow: hidden;
+}
+
 #game {
-	margin: 10px;
-	border: 1px solid red;
 	height: 400px;
 	width: 800px;
 	position: absolute;

@@ -32,6 +32,11 @@ $(function() {
 
 	SM.updateSprites();
 
-	$('#game').show();
+	$('#game')
+		.show()
+		.css({height: $(window).innerHeight(), width: $(window).innerWidth()})
+		.bind('resize', function() {
+			$(this).css({height: $(window).innerHeight(), width: $(window).innerWidth()});
+		});
 
 });
