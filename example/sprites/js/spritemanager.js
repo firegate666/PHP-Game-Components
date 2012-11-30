@@ -40,7 +40,7 @@ function SpriteManager() {
 		$.each(sprites, function(k, sprite) {
 			status.sprites[k] = {isPlayer: sprite.isPlayer(), object: sprite};
 		});
-		console.log(status);
+		return status;
 	}
 
 	/**
