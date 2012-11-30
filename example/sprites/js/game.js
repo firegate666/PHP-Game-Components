@@ -6,16 +6,11 @@ $(function() {
 
 	preloadImages(sprites);
 
-	var zIndex = 1,
-		counter = 0;
+	var zIndex = 1;
 
 	$.each(sprites, function (k, sprite_data) {
 		sprite_data.zIndex = zIndex++;
 		SM.addSprite((new Sprite(sprite_data)).init($('#game')));
-
-		$('#controls').append('<button class="'+sprite_data.type+'" onclick="SM.setPlayer('+counter+')">'
-			+'Set '+(counter++)
-			+'</button>');
 	});
 
 	$('#game').click(function(event) {

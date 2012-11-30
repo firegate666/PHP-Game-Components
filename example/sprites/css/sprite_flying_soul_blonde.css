@@ -1,11 +1,5 @@
 @CHARSET "UTF-8";
 
-#controls button.flying_soul_blonde {
-	background: url("../flying_soul_blonde/e00.png");
-	background-size: 64px 64px;
-	background-repeat: no-repeat;
-	padding-left: 50px;
-}
 
 .sprite.flying_soul_blonde {
 	height: 128px;

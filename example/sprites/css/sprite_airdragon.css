@@ -1,11 +1,5 @@
 @CHARSET "UTF-8";
 
-#controls button.airdragon {
-	background: url("../airdragon/e00.png");
-	background-size: 64px 64px;
-	background-repeat: no-repeat;
-	padding-left: 64px;
-}
 
 .sprite.airdragon {
 	height: 128px;
