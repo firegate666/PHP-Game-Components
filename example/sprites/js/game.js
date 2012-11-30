@@ -37,6 +37,19 @@ $(function() {
 		.css({height: $(window).innerHeight(), width: $(window).innerWidth()})
 		.bind('resize', function() {
 			$(this).css({height: $(window).innerHeight(), width: $(window).innerWidth()});
+			$(this).find('.sprite').each(function() {
+				var x, y;
+
+				if (($(this).position().top + $(this).height()) > $(window).innerHeight()) {
+					y = $(window).innerHeight() - ($(this).height() / 2);
+				}
+
+				if (($(this).position().left + $(this).width()) > $(window).innerWidth()) {
+					x = $(window).innerWidth() - ($(this).width() / 2);
+				}
+
+				$(this).trigger('move', {x: x, y: y});
+			});
 		});
 
 });

@@ -101,9 +101,24 @@ function Sprite(sprite_data)
 	/**
 	 * initialite sprite movement to given coordinates
 	 *
+	 * @param {integer} x
+	 * @param {integer} y
 	 * @return {Sprite}
 	 */
 	this.move = function(x, y) {
+
+		if (!x && x !== 0 && y && y !== 0) {
+			// no move
+			return this;
+		}
+
+		if (!x && x !== 0) {
+			x = position.left + halfWidth;
+		}
+
+		if (!y && y !== 0) {
+			y = position.top + halfHeight;
+		}
 
 		// source center
 		var position_x = position.left + halfWidth,
