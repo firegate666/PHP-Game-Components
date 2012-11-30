@@ -64,15 +64,19 @@ function pad(number, length) {
  * @return void
  */
 function preloadImages(spritemap) {
-	var directions = [ 'n', 'ne', 'e', 'se', 's', 'sw', 'w', 'nw' ]
-		,i;
+	var directions = [ 'n', 'ne', 'e', 'se', 's', 'sw', 'w', 'nw' ],
+		i,
+		loaded_sprite_types = {};
 
-	$.each(directions, function(k2, v2) {
-		$.each(spritemap, function(k, v) {
-			for (i = v.minFrame; i < v.maxFrame; i++) {
-				var img = new Image();
-				img.src = v.type + '/' + v2 + pad(i, 2) + '.png';
-			}
-		})
-	})
+	$.each(spritemap, function(k, v) {
+		if (!loaded_sprite_types[v.type]) {
+			$.each(directions, function(k2, v2) {
+				loaded_sprite_types[v.type] = true;
+				for (i = v.minFrame; i < v.maxFrame; i++) {
+					var img = new Image();
+					img.src = v.type + '/' + v2 + pad(i, 2) + '.png';
+				}
+			});
+		}
+	});
 }
