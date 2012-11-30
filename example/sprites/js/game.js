@@ -2,6 +2,8 @@ var SM = new SpriteManager();
 
 $(function() {
 
+	$('#game').hide();
+
 	preloadImages(sprites);
 
 	var zIndex = 1,
@@ -28,5 +30,7 @@ $(function() {
 	});
 
 	SM.updateSprites();
+
+	$('#game').show();
 
 });
