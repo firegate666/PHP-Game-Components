@@ -22,6 +22,12 @@ $(function() {
 		var x = event.pageX - $(this).position().left,
 			y = event.pageY - $(this).position().top;
 
+		// honor game field bounds
+		x = Math.max(64, x);
+		y = Math.max(64, y);
+		x = Math.min($(this).width()-64, x);
+		y = Math.min($(this).height()-64, y);
+
 		$('.sprite').trigger('move', {
 			x : x,
 			y : y
