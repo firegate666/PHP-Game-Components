@@ -104,7 +104,7 @@ function Sprite(sprite_data)
 
 		properties.facing = calculateFacing(angle);
 
-		if (distance < 200) {
+		if (Math.abs(distance) < 200) {
 			animation_duration = animation_duration / 5;
 		}
 
