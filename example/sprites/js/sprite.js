@@ -125,8 +125,16 @@ function Sprite(sprite_data)
 		$(properties.object).clearQueue().animate({
 			top : position_y2 + 'px',
 			left : position_x2 + 'px'
-		}, {duration: animation_duration, queue: true}, 'swing', function() {
-			moving = false;
+		}, {
+			duration: animation_duration,
+			queue: true,
+			easing: 'swing',
+			step: function() {
+
+			},
+			complete: function(now, fx) {
+				moving = false;
+			}
 		});
 
 		return this;
