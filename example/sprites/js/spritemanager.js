@@ -15,13 +15,18 @@ function SpriteManager() {
 	/**
 	 * set player sprite that reacts on the mouse
 	 *
+	 * @param {Sprite} next_player
 	 * @return void
 	 */
 	this.setPlayer = function(next_player) {
-
 		$.each(sprites, function(k, v) {
 			v.setPlayer(false);
+
+			if (v == next_player) {
+				next_player = k;
+			}
 		});
+
 		sprites[next_player].setPlayer(true);
 	}
 
