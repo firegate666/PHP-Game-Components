@@ -18,6 +18,12 @@ function Sprite(sprite_data)
 
 	var moving = false;
 
+	var manager = null;
+
+	this.setManager = function(my_manager) {
+		manager = my_manager;
+	};
+
 	this.init = function(target) {
 		return this.initView(target)
 			.registerEvents()

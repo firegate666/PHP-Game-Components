@@ -8,6 +8,7 @@ function SpriteManager() {
 	 * @return void
 	 */
 	this.addSprite = function(sprite) {
+		sprite.setManager(this);
 		sprites.push(sprite);
 	};
 
