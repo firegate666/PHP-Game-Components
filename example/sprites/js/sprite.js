@@ -83,10 +83,16 @@ function Sprite(sprite_data)
 
 	this.registerEvents = function() {
 		var self = this;
+
 		$(properties.object).bind('move', function(eventObject, eventData) {
 			if (properties.sprite_data.player) {
 				self.move(eventData.x, eventData.y);
 			}
+		});
+
+		$(properties.object).bind('click', function(eventObject) {
+			manager.setPlayer(self);
+			eventObject.stopPropagation();
 		});
 
 		return this;
