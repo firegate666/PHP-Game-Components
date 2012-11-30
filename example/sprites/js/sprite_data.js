@@ -44,7 +44,7 @@ var sprites = {
 		frames_per_second: 15
 	},
 
-	flying_soul_blonde4 : {
+	airdragon1 : {
 		x: 600,
 		y: 150,
 		facing: 'e',
@@ -53,8 +53,8 @@ var sprites = {
 			height : 128
 		},
 		minFrame : 0,
-		maxFrame : 15,
-		type: 'flying_soul_blonde',
+		maxFrame : 7,
+		type: 'airdragon',
 		player: false,
 		frames_per_second: 15
 	}
