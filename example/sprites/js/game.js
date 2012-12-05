@@ -48,7 +48,7 @@ $(function() {
 					x = $(window).innerWidth() - ($(this).width() / 2);
 				}
 
-				$(this).trigger('move', {x: x, y: y});
+				$(this).trigger('move', {x: x, y: y, force: true});
 			});
 		});
 
