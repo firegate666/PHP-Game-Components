@@ -46,7 +46,7 @@ Sprite.prototype.update = function() {
  * @param {integer} y
  * @return {Sprite}
  */
-Sprite.prototype.move = function(x, y, force) {
+Sprite.prototype.move = function(x, y) {
 	var self = this;
 
 	if ((typeof(x) == 'undefined' && typeof(y) == 'undefined') || (!x && x !== 0 && y && y !== 0)) {
