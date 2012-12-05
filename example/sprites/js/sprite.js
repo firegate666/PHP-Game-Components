@@ -4,20 +4,18 @@ var Sprite = function (sprite_data)
 	this.position = null;
 	this.halfWidth = null;
 	this.halfHeight = null;
-	this.properties = {
-			x: sprite_data.x,
-			y: sprite_data.y,
-			facing: sprite_data.facing,
-			start: 0,
-			sprite_data: sprite_data,
-			object: null
-		};
-
 	this.animation_class = null;
-
 	this.moving = false;
-
 	this.manager = null;
+
+	this.properties = {
+		x: sprite_data.x,
+		y: sprite_data.y,
+		facing: sprite_data.facing,
+		start: 0,
+		sprite_data: sprite_data,
+		object: null
+	};
 
 }
 
@@ -27,11 +25,11 @@ var Sprite = function (sprite_data)
  * @return {Sprite}
  */
 Sprite.prototype.update = function() {
-	var self = this;
 
 	this.properties.start += this.moving ? 2 : 1;
-	if (this.properties.start >= this.properties.sprite_data.maxFrame)
+	if (this.properties.start >= this.properties.sprite_data.maxFrame) {
 		this.properties.start = this.properties.sprite_data.minFrame;
+	}
 
 	this.position = $(this.properties.object).position();
 	this.setAnimationClass();
@@ -47,6 +45,7 @@ Sprite.prototype.update = function() {
  * @return {Sprite}
  */
 Sprite.prototype.move = function(x, y) {
+
 	var self = this;
 
 	if ((typeof(x) == 'undefined' && typeof(y) == 'undefined') || (!x && x !== 0 && y && y !== 0)) {
@@ -95,16 +94,21 @@ Sprite.prototype.move = function(x, y) {
 	});
 
 	return this;
+
 };
 
 Sprite.prototype.setManager = function(my_manager) {
+
 	this.manager = my_manager;
+
 };
 
 Sprite.prototype.init = function(target) {
+
 	return this.initView(target)
 		.registerEvents()
 		.update();
+
 };
 
 /**
@@ -113,7 +117,9 @@ Sprite.prototype.init = function(target) {
  * @return {Sprite}
  */
 Sprite.prototype.setPlayer = function(isPlayer) {
+
 	this.properties.sprite_data.player = isPlayer;
+
 	if (isPlayer) {
 		this.properties.object.addClass('player');
 	} else {
@@ -121,6 +127,7 @@ Sprite.prototype.setPlayer = function(isPlayer) {
 	}
 
 	return this;
+
 };
 
 /**
@@ -129,16 +136,21 @@ Sprite.prototype.setPlayer = function(isPlayer) {
  * @return {boolean}
  */
 Sprite.prototype.isPlayer = function() {
+
 	return this.properties.sprite_data.player;
+
 }
 
 Sprite.prototype.setAnimationClass = function() {
+
 	this.properties.object.removeClass(this.animation_class);
 	this.animation_class = this.properties.facing + '_' + pad(this.properties.start + '', 2);
 	this.properties.object.addClass(this.animation_class);
+
 };
 
 Sprite.prototype.initView = function(target) {
+
 	this.properties.start = 0;
 
 	this.properties.object = $('<div class="sprite '+this.properties.sprite_data.type+' '+(this.properties.sprite_data.player ? 'player' : '')+'"></div>')
@@ -155,10 +167,13 @@ Sprite.prototype.initView = function(target) {
 	this.halfHeight = $(this.properties.object).height() / 2;
 
 	this.setAnimationClass();
+
 	return this;
+
 };
 
 Sprite.prototype.registerEvents = function() {
+
 	var self = this;
 
 	$(this.properties.object).bind('move', function(eventObject, eventData) {
@@ -173,4 +188,5 @@ Sprite.prototype.registerEvents = function() {
 	});
 
 	return this;
+
 };

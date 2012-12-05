@@ -1,7 +1,6 @@
 var SpriteManager = function() {
 
 	this.sprites = new Array();
-
 	this.animation_loop_update = 0;
 
 }
@@ -12,8 +11,10 @@ var SpriteManager = function() {
  * @return void
  */
 SpriteManager.prototype.addSprite = function(sprite) {
+
 	sprite.setManager(this);
 	this.sprites.push(sprite);
+
 };
 
 /**
@@ -23,6 +24,7 @@ SpriteManager.prototype.addSprite = function(sprite) {
  * @return void
  */
 SpriteManager.prototype.setPlayer = function(next_player) {
+
 	$.each(this.sprites, function(k, v) {
 		v.setPlayer(false);
 
@@ -32,6 +34,7 @@ SpriteManager.prototype.setPlayer = function(next_player) {
 	});
 
 	this.sprites[next_player].setPlayer(true);
+
 }
 
 /**
@@ -40,11 +43,15 @@ SpriteManager.prototype.setPlayer = function(next_player) {
  * @return void
  */
 SpriteManager.prototype.status = function() {
+
 	var status = {sprites: {}};
+
 	$.each(this.sprites, function(k, sprite) {
 		status.sprites[k] = {isPlayer: sprite.isPlayer(), object: sprite};
 	});
+
 	return status;
+
 }
 
 
@@ -54,6 +61,7 @@ SpriteManager.prototype.status = function() {
  * @return void
  */
 SpriteManager.prototype.updateSprites = function() {
+
 	if (this.animation_loop_update === 0) {
 		this.animation_loop_update = new Date().getTime();
 	}
@@ -73,4 +81,5 @@ SpriteManager.prototype.updateSprites = function() {
 
 		self.updateSprites();
 	});
+
 }
