@@ -25,13 +25,17 @@ SpriteManager.prototype.addSprite = function(sprite) {
  */
 SpriteManager.prototype.setPlayer = function(next_player) {
 
-	$.each(this.sprites, function(k, v) {
-		v.setPlayer(false);
+	var sprite_id;
 
-		if (v == next_player) {
-			next_player = k;
+	for (sprite_id in this.sprites) {
+		if (this.sprites.hasOwnProperty(sprite_id)) {
+			this.sprites[sprite_id].setPlayer(false);
+
+			if (this.sprites[sprite_id] == next_player) {
+				next_player = sprite_id;
+			}
 		}
-	});
+	}
 
 	this.sprites[next_player].setPlayer(true);
 
@@ -69,13 +73,18 @@ SpriteManager.prototype.updateSprites = function() {
 	var self = this;
 
 	window.requestAnimFrame(function() {
-		var current = new Date().getTime(),
+		var sprite_id,
+			current = new Date().getTime(),
 			delta = current - self.animation_loop_update;
 
 		if (delta >= 40) {
-			$.each(self.sprites, function(k, sprite) {
-				sprite.update();
-			});
+
+			for (sprite_id in self.sprites) {
+				if (self.sprites.hasOwnProperty(sprite_id)) {
+					self.sprites[sprite_id].update();
+				}
+			}
+
 			self.animation_loop_update = new Date().getTime();
 		}
 
