@@ -43,19 +43,33 @@ function SpriteManager() {
 		return status;
 	}
 
+	this.animation_loop_update = 0;
+
 	/**
 	 * update loop
 	 *
 	 * @return void
 	 */
 	this.updateSprites = function() {
+		if (this.animation_loop_update === 0) {
+			this.animation_loop_update = new Date().getTime();
+		}
+
 		var self = this;
-		window.setTimeout(function() {
-			$.each(sprites, function(k, sprite) {
-				sprite.update();
-			});
+
+		window.requestAnimFrame(function() {
+			var current = new Date().getTime(),
+				delta = current - self.animation_loop_update;
+
+			if (delta >= 40) {
+				$.each(sprites, function(k, sprite) {
+					sprite.update();
+				});
+				self.animation_loop_update = new Date().getTime();
+			}
+
 			self.updateSprites();
-		}, 1000 / 25);
+		});
 	}
 
 }
