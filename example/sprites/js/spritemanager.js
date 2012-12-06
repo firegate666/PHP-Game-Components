@@ -75,6 +75,7 @@
 
 		window.requestAnimFrame(function(current) {
 			var sprite_id,
+				another_sprite_id,
 				delta = current - self.animation_loop_update;
 
 			if (delta >= 40) {
@@ -82,6 +83,16 @@
 				for (sprite_id in self.sprites) {
 					if (self.sprites.hasOwnProperty(sprite_id)) {
 						self.sprites[sprite_id].update();
+
+						// check collisions
+						self.sprites[sprite_id].setCollision(false);
+						for (another_sprite_id in self.sprites) {
+
+							if (self.sprites[sprite_id].collides(self.sprites[another_sprite_id])) {
+								self.sprites[sprite_id].setCollision(true);
+							}
+
+						}
 					}
 				}
 

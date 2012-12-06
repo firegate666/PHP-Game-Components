@@ -12,14 +12,24 @@ html, body {
 
 .sprite {
 	position: absolute;
-}
 
-.sprite.player {
 	-moz-border-radius: 64px;
 	-webkit-border-radius: 64px;
 	border-radius: 64px;
 
+	-moz-box-shadow: 0px 0px 15px rgba(0, 255, 0, .7);
+	-webkit-box-shadow: 0px 0px 15px rgba(0, 255, 0, .7);
+	box-shadow: 0px 0px 15px rgba(0, 255, 0, .7);
+}
+
+.sprite.player {
 	-moz-box-shadow: 0px 0px 15px rgba(0, 0, 255, .7);
 	-webkit-box-shadow: 0px 0px 15px rgba(0, 0, 255, .7);
 	box-shadow: 0px 0px 15px rgba(0, 0, 255, .7);
+}
+
+.sprite.collision {
+	-moz-box-shadow: 0px 0px 15px rgba(255, 0, 0, .7);
+	-webkit-box-shadow: 0px 0px 15px rgba(255, 0, 0, .7);
+	box-shadow: 0px 0px 15px rgba(255, 0, 0, .7);
 }
