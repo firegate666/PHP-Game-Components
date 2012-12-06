@@ -44,6 +44,24 @@
 	};
 
 	/**
+	 * check if sprite is in collision with another sprite
+	 *
+	 * @param {Sprite} another_sprite
+	 * @return {boolean}
+	 */
+	window.Sprite.prototype.collides = function(another_sprite) {
+
+		if (another_sprite === this) {
+			return false;
+		}
+
+		return !(this.position.left > (another_sprite.position.left + another_sprite.halfWidth*2)
+			|| (this.position.left + this.halfWidth*2) < another_sprite.position.left
+			|| this.position.top > (another_sprite.position.top + another_sprite.halfHeight*2)
+			|| (this.position.top + this.halfHeight*2) < another_sprite.position.top
+		);
+	};
+
 	/**
 	 * stop moving
 	 *
@@ -55,6 +73,8 @@
 
 		return this;
 	};
+
+	/**
 	* initialite sprite movement to given coordinates
 	*
 	* @param {integer} x
@@ -162,6 +182,22 @@
 
 		return this.properties.sprite_data.player;
 
+	};
+
+	/**
+	 * set collision state
+	 *
+	 * @param {boolean} has_collision
+	 * @return Sprite
+	 */
+	window.Sprite.prototype.setCollision = function(has_collision) {
+		if (has_collision) {
+			this.properties.object.addClass('collision');
+		} else {
+			this.properties.object.removeClass('collision');
+		}
+
+		return this;
 	};
 
 	window.Sprite.prototype.setAnimationClass = function() {
