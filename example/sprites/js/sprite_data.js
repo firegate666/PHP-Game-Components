@@ -46,7 +46,7 @@
 		},
 
 		airdragon1 : {
-			x: 600,
+			x: 650,
 			y: 150,
 			facing: 'e',
 			'style' : {
