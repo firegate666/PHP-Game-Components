@@ -177,13 +177,13 @@ Sprite.prototype.registerEvents = function() {
 
 	var self = this;
 
-	$(this.properties.object).bind('move', function(eventObject, eventData) {
+	$(this.properties.object).on('move', function(eventObject, eventData) {
 		if (self.properties.sprite_data.player || eventData.force) {
 			self.move(eventData.x, eventData.y, eventData.speed);
 		}
 	});
 
-	$(this.properties.object).bind('click', function(eventObject) {
+	$(this.properties.object).on('click', function(eventObject) {
 		self.manager.setPlayer(self);
 		eventObject.stopPropagation();
 	});

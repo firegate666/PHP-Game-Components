@@ -35,7 +35,7 @@ $(function() {
 
 	$('#game')
 		.show()
-		.bind('resize', function() {
+		.on('resize', function() {
 			$(this).find('.sprite').each(function() {
 				var x, y;
 
