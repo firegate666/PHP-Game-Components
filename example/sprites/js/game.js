@@ -2,8 +2,6 @@ $(function() {
 
 	var SM = new SpriteManager();
 
-	$('#game').hide();
-
 	preloadImages(sprites);
 
 	var zIndex = 1;
@@ -34,7 +32,6 @@ $(function() {
 	SM.updateSprites();
 
 	$('#game')
-		.show()
 		.on('resize', function() {
 			$(this).find('.sprite').each(function() {
 				var x, y;
