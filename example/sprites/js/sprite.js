@@ -167,6 +167,7 @@
 		this.animation_class = this.properties.facing + '_' + pad(this.properties.start + '', 2);
 		this.properties.object.addClass(this.animation_class);
 
+		return this;
 	};
 
 	window.Sprite.prototype.initView = function(target) {
