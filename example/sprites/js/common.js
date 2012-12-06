@@ -20,6 +20,8 @@ window.requestAnimFrame = (function(){
  * @return {float}
  */
 function calculateFacingAngle(x2, y2, x1, y1) {
+	"use strict";
+
 	return Math.atan2(y2 - y1, x2 - x1) * (180 / Math.PI);
 }
 
@@ -30,6 +32,8 @@ function calculateFacingAngle(x2, y2, x1, y1) {
  * @return {string}
  */
 function calculateFacing(angle) {
+	"use strict";
+
 	var step = 22.5;
 
 	if (angle > 0 - step && angle < 0 + step)
@@ -60,6 +64,8 @@ function calculateFacing(angle) {
  * @return {string}
  */
 function pad(number, length) {
+	"use strict";
+
 	var str = '' + number;
 
 	while (str.length < length) {
@@ -76,6 +82,8 @@ function pad(number, length) {
  * @return void
  */
 function preloadImages(spritemap) {
+	"use strict";
+
 	var directions = [ 'n', 'ne', 'e', 'se', 's', 'sw', 'w', 'nw' ],
 		i,
 		loaded_sprite_types = {};
