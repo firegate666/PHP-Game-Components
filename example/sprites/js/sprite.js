@@ -1,5 +1,8 @@
-(function(window) {
+(function($, window) {
 
+	/**
+	 * constructor
+	 */
 	window.Sprite = function (sprite_data)
 	{
 
@@ -212,4 +215,4 @@
 
 	};
 
-})(window);
+})(jQuery, window);
