@@ -26,7 +26,7 @@ $(function() {
 		$('.sprite').trigger('move', {
 			x : x,
 			y : y,
-			speed: event.type === 'dblckick' ? 1.6 : 1
+			speed: event.type === 'dblclick' ? 1.6 : 1
 		});
 
 	});
