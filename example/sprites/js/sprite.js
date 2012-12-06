@@ -85,7 +85,7 @@
 		this.move_timer_id = window.setTimeout(function(){
 			self.properties.facing = calculateFacing(angle);
 
-			$(self.properties.object).clearQueue().animate({
+			$(self.properties.object).stop(true, false).animate({
 				top : position_y2 + 'px',
 				left : position_x2 + 'px'
 			}, {
