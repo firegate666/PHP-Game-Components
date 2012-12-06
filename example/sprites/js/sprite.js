@@ -1,193 +1,202 @@
-var Sprite = function (sprite_data)
-{
+(function(window) {
 
-	this.position = null;
-	this.halfWidth = null;
-	this.halfHeight = null;
-	this.animation_class = null;
-	this.moving = false;
-	this.manager = null;
+	window.Sprite = function (sprite_data)
+	{
 
-	this.properties = {
-		x: sprite_data.x,
-		y: sprite_data.y,
-		facing: sprite_data.facing,
-		start: 0,
-		sprite_data: sprite_data,
-		object: null
+		this.position = null;
+		this.halfWidth = null;
+		this.halfHeight = null;
+		this.animation_class = null;
+		this.moving = false;
+		this.manager = null;
+		this.move_timer_id = null;
+
+		this.properties = {
+			x: sprite_data.x,
+			y: sprite_data.y,
+			facing: sprite_data.facing,
+			start: 0,
+			sprite_data: sprite_data,
+			object: null
+		};
+
+	}
+
+	/**
+	* update sprite
+	*
+	* @return {Sprite}
+	*/
+	window.Sprite.prototype.update = function() {
+
+		this.properties.start += this.moving ? 2 : 1;
+		if (this.properties.start >= this.properties.sprite_data.maxFrame) {
+			this.properties.start = this.properties.sprite_data.minFrame;
+		}
+
+		this.position = $(this.properties.object).position();
+		this.setAnimationClass();
+
+		return this;
 	};
 
-}
+	/**
+	* initialite sprite movement to given coordinates
+	*
+	* @param {integer} x
+	* @param {integer} y
+	* @param {integer} speed_factor
+	* @return {Sprite}
+	*/
+	window.Sprite.prototype.move = function(x, y, speed_factor) {
 
-/**
- * update sprite
- *
- * @return {Sprite}
- */
-Sprite.prototype.update = function() {
+		var self = this;
 
-	this.properties.start += this.moving ? 2 : 1;
-	if (this.properties.start >= this.properties.sprite_data.maxFrame) {
-		this.properties.start = this.properties.sprite_data.minFrame;
-	}
+		if ((typeof(x) == 'undefined' && typeof(y) == 'undefined') || (!x && x !== 0 && !y && y !== 0)) {
+			// no move
+			return this;
+		}
 
-	this.position = $(this.properties.object).position();
-	this.setAnimationClass();
+		if (!x && x !== 0) {
+			x = this.position.left + this.halfWidth;
+		}
 
-	return this;
-};
+		if (!y && y !== 0) {
+			y = this.position.top + this.halfHeight;
+		}
 
-/**
- * initialite sprite movement to given coordinates
- *
- * @param {integer} x
- * @param {integer} y
- * @param {integer} speed_factor
- * @return {Sprite}
- */
-Sprite.prototype.move = function(x, y, speed_factor) {
+		// source center
+		var position_x = this.position.left + this.halfWidth,
+			position_y = this.position.top + this.halfHeight,
+			position_x2 = x - this.halfWidth,
+			position_y2 = y - this.halfHeight,
+			angle = calculateFacingAngle(x, y, position_x, position_y),
+			animation_duration = 4000 / speed_factor,
+			distance = Math.sqrt((position_x2-position_x)*(position_x2-position_x)+(position_y2-position_y)*(position_y2-position_y));
 
-	var self = this;
+		if (Math.abs(distance) < 200) {
+			animation_duration = animation_duration / 2;
+		}
 
-	if ((typeof(x) == 'undefined' && typeof(y) == 'undefined') || (!x && x !== 0 && !y && y !== 0)) {
-		// no move
+		this.moving = true;
+
+		window.clearTimeout(this.move_timer_id);
+
+		this.move_timer_id = window.setTimeout(function(){
+			self.properties.facing = calculateFacing(angle);
+
+			$(self.properties.object).clearQueue().animate({
+				top : position_y2 + 'px',
+				left : position_x2 + 'px'
+			}, {
+				duration: animation_duration,
+				queue: true,
+				easing: 'swing',
+				step: function(now, fx) {
+				},
+				complete: function(now, fx) {
+					self.moving = false;
+					window.clearTimeout(self.move_timer_id);
+				}
+			});
+		}, 300);
+
 		return this;
-	}
 
-	if (!x && x !== 0) {
-		x = this.position.left + this.halfWidth;
-	}
+	};
 
-	if (!y && y !== 0) {
-		y = this.position.top + this.halfHeight;
-	}
+	window.Sprite.prototype.setManager = function(my_manager) {
 
-	// source center
-	var position_x = this.position.left + this.halfWidth,
-		position_y = this.position.top + this.halfHeight,
-		position_x2 = x - this.halfWidth,
-		position_y2 = y - this.halfHeight,
-		angle = calculateFacingAngle(x, y, position_x, position_y),
-		animation_duration = 4000 / speed_factor,
-		distance = Math.sqrt((position_x2-position_x)*(position_x2-position_x)+(position_y2-position_y)*(position_y2-position_y));
+		this.manager = my_manager;
 
-	this.properties.facing = calculateFacing(angle);
+	};
 
-	if (Math.abs(distance) < 200) {
-		animation_duration = animation_duration / 2;
-	}
+	window.Sprite.prototype.init = function(target) {
 
-	this.moving = true;
+		return this.initView(target)
+			.registerEvents()
+			.update();
 
-	$(this.properties.object).clearQueue().animate({
-		top : position_y2 + 'px',
-		left : position_x2 + 'px'
-	}, {
-		duration: animation_duration,
-		queue: true,
-		easing: 'swing',
-		step: function() {
+	};
 
-		},
-		complete: function(now, fx) {
-			self.moving = false;
+	/**
+	* set player status of sprite
+	*
+	* @return {Sprite}
+	*/
+	window.Sprite.prototype.setPlayer = function(isPlayer) {
+
+		this.properties.sprite_data.player = isPlayer;
+
+		if (isPlayer) {
+			this.properties.object.addClass('player');
+		} else {
+			this.properties.object.removeClass('player');
 		}
-	});
 
-	return this;
+		return this;
 
-};
+	};
 
-Sprite.prototype.setManager = function(my_manager) {
+	/**
+	* get player status of sprite
+	*
+	* @return {boolean}
+	*/
+	window.Sprite.prototype.isPlayer = function() {
 
-	this.manager = my_manager;
+		return this.properties.sprite_data.player;
 
-};
-
-Sprite.prototype.init = function(target) {
-
-	return this.initView(target)
-		.registerEvents()
-		.update();
-
-};
-
-/**
- * set player status of sprite
- *
- * @return {Sprite}
- */
-Sprite.prototype.setPlayer = function(isPlayer) {
-
-	this.properties.sprite_data.player = isPlayer;
-
-	if (isPlayer) {
-		this.properties.object.addClass('player');
-	} else {
-		this.properties.object.removeClass('player');
 	}
 
-	return this;
+	window.Sprite.prototype.setAnimationClass = function() {
 
-};
+		this.properties.object.removeClass(this.animation_class);
+		this.animation_class = this.properties.facing + '_' + pad(this.properties.start + '', 2);
+		this.properties.object.addClass(this.animation_class);
 
-/**
- * get player status of sprite
- *
- * @return {boolean}
- */
-Sprite.prototype.isPlayer = function() {
+	};
 
-	return this.properties.sprite_data.player;
+	window.Sprite.prototype.initView = function(target) {
 
-}
+		this.properties.start = 0;
 
-Sprite.prototype.setAnimationClass = function() {
+		this.properties.object = $('<div class="sprite '+this.properties.sprite_data.type+' '+(this.properties.sprite_data.player ? 'player' : '')+'"></div>')
+			.appendTo($(target));
 
-	this.properties.object.removeClass(this.animation_class);
-	this.animation_class = this.properties.facing + '_' + pad(this.properties.start + '', 2);
-	this.properties.object.addClass(this.animation_class);
+		$(this.properties.object).css({
+			top: this.properties.y + 'px',
+			left: this.properties.x + 'px',
+			zIndex : this.properties.sprite_data.zIndex++
+		});
 
-};
+		this.position = $(this.properties.object).position();
+		this.halfWidth = $(this.properties.object).width() / 2;
+		this.halfHeight = $(this.properties.object).height() / 2;
 
-Sprite.prototype.initView = function(target) {
+		this.setAnimationClass();
 
-	this.properties.start = 0;
+		return this;
 
-	this.properties.object = $('<div class="sprite '+this.properties.sprite_data.type+' '+(this.properties.sprite_data.player ? 'player' : '')+'"></div>')
-		.appendTo($(target));
+	};
 
-	$(this.properties.object).css({
-		top: this.properties.y + 'px',
-		left: this.properties.x + 'px',
-		zIndex : this.properties.sprite_data.zIndex++
-	});
+	window.Sprite.prototype.registerEvents = function() {
 
-	this.position = $(this.properties.object).position();
-	this.halfWidth = $(this.properties.object).width() / 2;
-	this.halfHeight = $(this.properties.object).height() / 2;
+		var self = this;
 
-	this.setAnimationClass();
+		$(this.properties.object).on('move', function(eventObject, eventData) {
+			if (self.properties.sprite_data.player || eventData.force) {
+				self.move(eventData.x, eventData.y, eventData.speed);
+			}
+		});
 
-	return this;
+		$(this.properties.object).on('click', function(eventObject) {
+			self.manager.setPlayer(self);
+			eventObject.stopPropagation();
+		});
 
-};
+		return this;
 
-Sprite.prototype.registerEvents = function() {
+	};
 
-	var self = this;
-
-	$(this.properties.object).on('move', function(eventObject, eventData) {
-		if (self.properties.sprite_data.player || eventData.force) {
-			self.move(eventData.x, eventData.y, eventData.speed);
-		}
-	});
-
-	$(this.properties.object).on('click', function(eventObject) {
-		self.manager.setPlayer(self);
-		eventObject.stopPropagation();
-	});
-
-	return this;
-
-};
+})(window);
