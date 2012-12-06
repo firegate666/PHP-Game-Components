@@ -1,6 +1,6 @@
-var SM = new SpriteManager();
-
 $(function() {
+
+	var SM = new SpriteManager();
 
 	$('#game').hide();
 
