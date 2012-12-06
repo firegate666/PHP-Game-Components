@@ -49,7 +49,7 @@ Sprite.prototype.move = function(x, y, speed_factor) {
 
 	var self = this;
 
-	if ((typeof(x) == 'undefined' && typeof(y) == 'undefined') || (!x && x !== 0 && y && y !== 0)) {
+	if ((typeof(x) == 'undefined' && typeof(y) == 'undefined') || (!x && x !== 0 && !y && y !== 0)) {
 		// no move
 		return this;
 	}
