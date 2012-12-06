@@ -42,9 +42,10 @@ Sprite.prototype.update = function() {
  *
  * @param {integer} x
  * @param {integer} y
+ * @param {integer} speed_factor
  * @return {Sprite}
  */
-Sprite.prototype.move = function(x, y) {
+Sprite.prototype.move = function(x, y, speed_factor) {
 
 	var self = this;
 
@@ -67,13 +68,13 @@ Sprite.prototype.move = function(x, y) {
 		position_x2 = x - this.halfWidth,
 		position_y2 = y - this.halfHeight,
 		angle = calculateFacingAngle(x, y, position_x, position_y),
-		animation_duration = 4000,
+		animation_duration = 4000 / speed_factor,
 		distance = Math.sqrt((position_x2-position_x)*(position_x2-position_x)+(position_y2-position_y)*(position_y2-position_y));
 
 	this.properties.facing = calculateFacing(angle);
 
 	if (Math.abs(distance) < 200) {
-		animation_duration = 1500;
+		animation_duration = animation_duration / 2;
 	}
 
 	this.moving = true;
@@ -178,7 +179,7 @@ Sprite.prototype.registerEvents = function() {
 
 	$(this.properties.object).bind('move', function(eventObject, eventData) {
 		if (self.properties.sprite_data.player || eventData.force) {
-			self.move(eventData.x, eventData.y);
+			self.move(eventData.x, eventData.y, eventData.speed);
 		}
 	});
 

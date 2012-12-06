@@ -13,7 +13,7 @@ $(function() {
 		SM.addSprite((new Sprite(sprite_data)).init($('#game')));
 	});
 
-	$('#game').click(function(event) {
+	$('#game').on('click dblclick', function(event) {
 		var x = event.pageX - $(this).position().left,
 			y = event.pageY - $(this).position().top;
 
@@ -25,7 +25,8 @@ $(function() {
 
 		$('.sprite').trigger('move', {
 			x : x,
-			y : y
+			y : y,
+			speed: event.type === 'dblckick' ? 1.6 : 1
 		});
 
 	});
