@@ -5,5 +5,3 @@ nbproject
 
 dist/*.phar*
 
-example/sprites/js/min/*.min.js
-
