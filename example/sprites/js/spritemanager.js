@@ -5,7 +5,7 @@
 		this.sprites = new Array();
 		this.animation_loop_update = 0;
 
-	}
+	};
 
 	/**
 	* add sprite to collection
@@ -41,7 +41,7 @@
 
 		this.sprites[next_player].setPlayer(true);
 
-	}
+	};
 
 	/**
 	* print out manager status
@@ -58,7 +58,7 @@
 
 		return status;
 
-	}
+	};
 
 	/**
 	* update loop
@@ -95,6 +95,6 @@
 			self.updateSprites();
 		});
 
-	}
+	};
 
 })(window);

@@ -20,7 +20,7 @@
 			object: null
 		};
 
-	}
+	};
 
 	/**
 	* update sprite
@@ -147,7 +147,7 @@
 
 		return this.properties.sprite_data.player;
 
-	}
+	};
 
 	window.Sprite.prototype.setAnimationClass = function() {
 
