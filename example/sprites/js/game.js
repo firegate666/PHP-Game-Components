@@ -34,9 +34,7 @@ $(function() {
 
 	$('#game')
 		.show()
-		.css({height: $(window).innerHeight(), width: $(window).innerWidth()})
 		.bind('resize', function() {
-			$(this).css({height: $(window).innerHeight(), width: $(window).innerWidth()});
 			$(this).find('.sprite').each(function() {
 				var x, y;
 
