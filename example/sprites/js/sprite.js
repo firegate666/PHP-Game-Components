@@ -41,6 +41,17 @@
 	};
 
 	/**
+	/**
+	 * stop moving
+	 *
+	 * @return {Sprite}
+	 */
+	window.Sprite.prototype.stop = function() {
+		this.moving = false;
+		$(this.properties.object).stop(true, false);
+
+		return this;
+	};
 	* initialite sprite movement to given coordinates
 	*
 	* @param {integer} x
@@ -85,7 +96,8 @@
 		this.move_timer_id = window.setTimeout(function(){
 			self.properties.facing = calculateFacing(angle);
 
-			$(self.properties.object).stop(true, false).animate({
+			self.stop();
+			$(self.properties.object).animate({
 				top : position_y2 + 'px',
 				left : position_x2 + 'px'
 			}, {
