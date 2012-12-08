@@ -112,14 +112,13 @@
 			animation_duration = animation_duration / 2;
 		}
 
-		this.moving = true;
-
 		window.clearTimeout(this.move_timer_id);
 
 		this.move_timer_id = window.setTimeout(function(){
 			self.properties.facing = calculateFacing(angle);
 
 			self.stop();
+			self.moving = true;
 			$(self.properties.object).animate({
 				top : position_y2 + 'px',
 				left : position_x2 + 'px'
