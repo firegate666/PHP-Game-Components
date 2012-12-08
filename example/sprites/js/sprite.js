@@ -200,6 +200,10 @@
 		return this;
 	};
 
+	window.Sprite.prototype.hasCollision = function() {
+		return this.properties.object.hasClass('collision');
+	};
+
 	window.Sprite.prototype.setAnimationClass = function() {
 
 		this.properties.object.removeClass(this.animation_class);
