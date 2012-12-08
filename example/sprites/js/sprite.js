@@ -13,6 +13,7 @@
 		this.moving = false;
 		this.manager = null;
 		this.move_timer_id = null;
+		this.last_position = null;
 
 		this.properties = {
 			x: sprite_data.x,
@@ -119,6 +120,7 @@
 
 			self.stop();
 			self.moving = true;
+			self.last_position = {top: position_y, left: position_x};
 			$(self.properties.object).animate({
 				top : position_y2 + 'px',
 				left : position_x2 + 'px'
