@@ -9,7 +9,6 @@
 		this.position = null;
 		this.halfWidth = null;
 		this.halfHeight = null;
-		this.animation_class = null;
 		this.moving = false;
 		this.manager = null;
 		this.move_timer_id = null;
@@ -32,6 +31,35 @@
 	* @return {Sprite}
 	*/
 	window.Sprite.prototype.update = function() {
+		var y_offset = 0,
+			x_offset = 0;
+
+		switch (this.properties.facing) {
+			case 'n':
+				y_offset = 0 * this.halfHeight * 2;
+				break;
+			case 'nw':
+				y_offset = 1 * this.halfHeight * 2;
+				break;
+			case 'w':
+				y_offset = 2 * this.halfHeight * 2;
+				break;
+			case 'sw':
+				y_offset = 3 * this.halfHeight * 2;
+				break;
+			case 's':
+				y_offset = 4 * this.halfHeight * 2;
+				break;
+			case 'se':
+				y_offset = 5 * this.halfHeight * 2;
+				break;
+			case 'e':
+				y_offset = 6 * this.halfHeight * 2;
+				break;
+			case 'ne':
+				y_offset = 7 * this.halfHeight * 2;
+				break;
+		}
 
 		this.properties.start += this.moving ? 2 : 1;
 		if (this.properties.start >= this.properties.sprite_data.maxFrame) {
@@ -39,7 +67,12 @@
 		}
 
 		this.position = $(this.properties.object).position();
-		this.setAnimationClass();
+
+		x_offset = this.properties.start * this.halfWidth * 2;
+
+		$(this.properties.object)
+			.css('background-position', x_offset + 'px ' + y_offset + 'px')
+		;
 
 		return this;
 	};
@@ -205,15 +238,6 @@
 		return this.properties.object.hasClass('collision');
 	};
 
-	window.Sprite.prototype.setAnimationClass = function() {
-
-		this.properties.object.removeClass(this.animation_class);
-		this.animation_class = this.properties.facing + '_' + pad(this.properties.start + '', 2);
-		this.properties.object.addClass(this.animation_class);
-
-		return this;
-	};
-
 	window.Sprite.prototype.initView = function(target) {
 
 		this.properties.start = 0;
@@ -230,8 +254,6 @@
 		this.position = $(this.properties.object).position();
 		this.halfWidth = $(this.properties.object).width() / 2;
 		this.halfHeight = $(this.properties.object).height() / 2;
-
-		this.setAnimationClass();
 
 		return this;
 

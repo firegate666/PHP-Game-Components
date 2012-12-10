@@ -84,7 +84,7 @@ function pad(number, length) {
 function preloadImages(spritemap) {
 	"use strict";
 
-	var directions = [ 'n', 'ne', 'e', 'se', 's', 'sw', 'w', 'nw' ],
+	var directions = ['default'/*, 'idle', 'moving', 'fighting'*/],
 		i,
 		loaded_sprite_types = {};
 
@@ -92,10 +92,8 @@ function preloadImages(spritemap) {
 		if (!loaded_sprite_types[v.type]) {
 			$.each(directions, function(k2, v2) {
 				loaded_sprite_types[v.type] = true;
-				for (i = v.minFrame; i < v.maxFrame; i++) {
-					var img = new Image();
-					img.src = v.type + '/' + v2 + pad(i, 2) + '.png';
-				}
+				var img = new Image();
+				img.src = v.type + '/spritemap_' + v2 + '.png';
 			});
 		}
 	});

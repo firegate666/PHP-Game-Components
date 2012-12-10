@@ -48,7 +48,7 @@
 		airdragon1 : {
 			x: 650,
 			y: 150,
-			facing: 'e',
+			facing: 'se',
 			'style' : {
 				width : 128,
 				height : 128
