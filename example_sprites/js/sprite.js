@@ -26,11 +26,11 @@
 	};
 
 	/**
-	* update sprite
-	*
-	* @return {Sprite}
-	*/
-	window.Sprite.prototype.update = function() {
+	 * update sprite frames
+	 *
+	 * @return {Sprite}
+	 */
+	window.Sprite.prototype.updateSpriteFrames = function() {
 		var y_offset = 0,
 			x_offset = 0;
 
@@ -66,8 +66,6 @@
 			this.properties.start = this.properties.sprite_data.minFrame;
 		}
 
-		this.position = $(this.properties.object).position();
-
 		x_offset = this.properties.start * this.halfWidth * 2;
 
 		$(this.properties.object)
@@ -75,6 +73,27 @@
 		;
 
 		return this;
+	};
+
+	/**
+	 * update sprite position
+	 *
+	 * @return {Sprite}
+	 */
+	window.Sprite.prototype.updateSpritePosition = function() {
+		this.position = $(this.properties.object).position();
+
+		return this;
+	};
+
+	/**
+	 * update sprite
+	 *
+	 * @return {Sprite}
+	 */
+	window.Sprite.prototype.update = function() {
+		return this.updateSpriteFrames()
+			.updateSpritePosition();
 	};
 
 	/**
