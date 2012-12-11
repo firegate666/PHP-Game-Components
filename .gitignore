@@ -5,5 +5,5 @@ nbproject
 
 dist/*.phar*
 
-js/min/*.min.js
+*/js/min/*.min.js
 
