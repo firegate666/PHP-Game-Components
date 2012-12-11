@@ -37,8 +37,8 @@ class XMLTechTreeFactory extends TechTreeFactory
 	{
 		$xml = new \SimpleXMLElement ( $source, 0, true );
 		$tt = new TechTree ();
-		$tt->setName ( ( string ) $xml ['name'] );
-		$tt->setDescription ( ( string ) $xml->description );
+		$tt->setName ( ( string ) $xml ['name'] )
+			->setDescription ( ( string ) $xml->description );
 		
 		foreach ( $xml->techtreeitem as $entryXml )
 		{
