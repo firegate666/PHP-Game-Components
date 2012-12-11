@@ -47,7 +47,7 @@ class TechTreeItem
 
 	/**
 	 *
-	 * @param $key String       	
+	 * @param String $key
 	 * @return TechTreeItem $this
 	 */
 	public function addDependency($key)
@@ -93,7 +93,7 @@ class TechTreeItem
 
 	/**
 	 *
-	 * @param $key string       	
+	 * @param string $key
 	 * @return TechTreeItem $this
 	 */
 	public function setKey($key)
@@ -104,7 +104,7 @@ class TechTreeItem
 
 	/**
 	 *
-	 * @param $name string       	
+	 * @param string $name
 	 * @return TechTreeItem $this
 	 */
 	public function setName($name)
@@ -115,7 +115,7 @@ class TechTreeItem
 
 	/**
 	 *
-	 * @param $description string       	
+	 * @param string $description
 	 * @return TechTreeItem $this
 	 */
 	public function setDescription($description)
@@ -124,15 +124,16 @@ class TechTreeItem
 		return $this;
 	}
 
+	/**
+	 * @return array
+	 */
 	public function toArray() {
-		$result = array(
+		return array(
 			'key' => $this->getKey(),
 			'name' => $this->getName(),
 			'description' => $this->getDescription(),
 			'dependencies' => $this->getDependencies()
 		);
-
-		return $result;
 	}
 
 }

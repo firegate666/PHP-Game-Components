@@ -28,8 +28,7 @@ class XMLTechTreeFactory extends TechTreeFactory
 	 *
 	 * @see cx\php\game\techtree.TechTreeFactory::loadTree()
 	 *
-	 * @param $source String
-	 *       	 path to XML
+	 * @param String $source path to XML or XML as string
 	 * @param boolean $data_is_url
 	 * @throws TechTreeItemExistsException
 	 * @return TechTree

@@ -21,6 +21,10 @@ namespace cx\php\game\techtree;
 abstract class TechTreeFactory
 {
 
+	/**
+	 *
+	 * @var TechTreeFactory
+	 */
 	protected static $singleton;
 
 	/**
@@ -33,10 +37,11 @@ abstract class TechTreeFactory
 
 	/**
 	 *
-	 * @param $source mixed       	
+	 * @param mixed $source
+	 * @param boolean $data_is_url
 	 * @return TechTree
 	 */
-	abstract function loadTree($source = null);
+	abstract function loadTree($source = null, $data_is_url = true);
 
 	/**
 	 *

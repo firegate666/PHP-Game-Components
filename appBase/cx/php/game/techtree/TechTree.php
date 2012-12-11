@@ -41,7 +41,7 @@ class TechTree
 
 	/**
 	 *
-	 * @param $item TechTreeItem       	
+	 * @param TechTreeItem $item
 	 * @throws TechTreeItemExistsException
 	 * @return TechTree $this
 	 */
@@ -57,7 +57,7 @@ class TechTree
 
 	/**
 	 *
-	 * @param $key String       	
+	 * @param String $key
 	 * @return TechTreeItem/false
 	 */
 	public function getItem($key)
@@ -98,7 +98,7 @@ class TechTree
 
 	/**
 	 *
-	 * @param $name string       	
+	 * @param string $name
 	 * @return TechTree $this
 	 */
 	public function setName($name)
@@ -109,7 +109,7 @@ class TechTree
 
 	/**
 	 *
-	 * @param $description string       	
+	 * @param string $description
 	 * @return TechTree $this
 	 */
 	public function setDescription($description)
@@ -118,6 +118,10 @@ class TechTree
 		return $this;
 	}
 
+	/**
+	 *
+	 * @return array
+	 */
 	public function toArray() {
 		$result = array(
 			'name' => $this->getName(),
