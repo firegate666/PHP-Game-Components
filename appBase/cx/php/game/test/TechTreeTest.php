@@ -48,6 +48,34 @@ class TechTreeTest extends PHPUnit_Framework_TestCase
 		$this->assertAttributeSame ( $name, 'name', $this->tt );
 	}
 
+	public function testLoadTree() {
+		$loader = cx\php\game\techtree\XMLTechTreeFactory::getInstance();
+		$this->tt = $loader->loadTree('<?xml version="1.0" encoding="UTF-8"?>
+			<techtree name="Example Tech Tree">
+				<description>This is an example tech tree</description>
+
+				<techtreeitem key="WPN_KNIFE" name="Knife">
+					<description>This is a knife.</description>
+				</techtreeitem>
+
+				<techtreeitem key="WPN_SWORD" name="Sword">
+					<description>This is a sword.</description>
+					<dependson key="WPN_KNIFE" />
+				</techtreeitem>
+
+				<techtreeitem key="WPN_BOW" name="Bow">
+					<description>This is a bow.</description>
+					<dependson key="WPN_KNIFE" />
+					<dependson key="WPN_SWORD" />
+				</techtreeitem>
+
+			</techtree>', false);
+
+		$this->assertEquals('Example Tech Tree', $this->tt->getName());
+		$this->assertEquals('This is an example tech tree', $this->tt->getDescription());
+		$this->assertEquals(3, count($this->tt->getItems()));
+	}
+
 	/**
 	 * Cleans up the environment after running a test.
 	 */
