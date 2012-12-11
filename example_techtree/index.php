@@ -35,8 +35,8 @@ $tt = $ttf->loadTree ( $techTreeXML );
 <body>
 	<h1>Example</h1>
 	<p>is running ...</p>
-<?php
-debug ( $tt );
-?>
+	<?php
+		debug ( $tt->toArray() );
+	?>
 </body>
 </html>
