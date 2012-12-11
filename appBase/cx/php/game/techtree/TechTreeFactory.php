@@ -18,8 +18,6 @@
 
 namespace cx\php\game\techtree;
 
-use cx\php\game\component\ComponentLoader;
-
 abstract class TechTreeFactory
 {
 
@@ -48,8 +46,7 @@ abstract class TechTreeFactory
 	{
 		if (is_null ( static::$singleton ))
 		{
-			$class_name = get_called_class ();
-			static::$singleton = new $class_name ();
+			static::$singleton = new static ();
 		}
 		return static::$singleton;
 	}
