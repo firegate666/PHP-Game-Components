@@ -52,7 +52,7 @@ class XMLTechTreeFactory extends TechTreeFactory
 	/**
 	 * create techtree item
 	 *
-	 * @param $xml \SimpleXMLElement       	
+	 * @param \SimpleXMLElement $xml
 	 * @return TechTreeItem
 	 */
 	protected function getTechTreeItem(\SimpleXMLElement $xml)
