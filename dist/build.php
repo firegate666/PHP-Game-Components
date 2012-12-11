@@ -80,7 +80,7 @@ $t1 = microtime ( true );
 printf ( 'Create phar build of game components' . PHP_EOL );
 
 $buildFile = __DIR__ . '/php-game-components.phar' . $extension;
-$base_dir = realpath ( __DIR__ . '/../biz' );
+$base_dir = realpath ( __DIR__ . '/../appBase' );
 
 if (file_exists ( $buildFile ))
 {
