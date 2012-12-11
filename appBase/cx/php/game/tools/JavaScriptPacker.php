@@ -42,7 +42,7 @@ class JavaScriptPacker {
 	 */
 	public function writePackedJavascript($js_files) {
 		foreach ($js_files as $js_infile => $js_outfile) {
-			if (!file_exists($js_outfile) || filemtime($js_outfile) < filemtime($js_infile)) {
+			if ((!file_exists($js_outfile) || filemtime($js_outfile) < filemtime($js_infile)) && is_writable($js_outfile)) {
 				$packer = new $this->packer_class(file_get_contents($js_infile), 'Normal', true, false);
 				file_put_contents($js_outfile, $packer->pack());
 			}
