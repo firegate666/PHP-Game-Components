@@ -58,6 +58,14 @@ class TechTreeItem
 
 	/**
 	 *
+	 * @return array
+	 */
+	public function getDependencies() {
+		return $this->dependencies;
+	}
+
+	/**
+	 *
 	 * @return the $key
 	 */
 	public function getKey()
@@ -114,6 +122,17 @@ class TechTreeItem
 	{
 		$this->description = $description;
 		return $this;
+	}
+
+	public function toArray() {
+		$result = array(
+			'key' => $this->getKey(),
+			'name' => $this->getName(),
+			'description' => $this->getDescription(),
+			'dependencies' => $this->getDependencies()
+		);
+
+		return $result;
 	}
 
 }

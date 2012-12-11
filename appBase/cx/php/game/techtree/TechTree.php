@@ -70,6 +70,15 @@ class TechTree
 	}
 
 	/**
+	 * get all tech tree items
+	 *
+	 * @return TechTreeItem[]
+	 */
+	public function getItems() {
+		return $this->items;
+	}
+
+	/**
 	 *
 	 * @return string $name
 	 */
@@ -107,6 +116,20 @@ class TechTree
 	{
 		$this->description = $description;
 		return $this;
+	}
+
+	public function toArray() {
+		$result = array(
+			'name' => $this->getName(),
+			'description' => $this->getDescription(),
+			'items' => array()
+		);
+
+		foreach ($this->getItems() as $item) {
+			$result['items'][] = $item->toArray();
+		}
+
+		return $result;
 	}
 
 }
