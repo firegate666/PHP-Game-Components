@@ -128,13 +128,13 @@
 	};
 
 	/**
-	* initialite sprite movement to given coordinates
-	*
-	* @param {integer} x
-	* @param {integer} y
-	* @param {integer} speed_factor
-	* @return {Sprite}
-	*/
+	 * initialite sprite movement to given coordinates
+	 *
+	 * @param {integer} x
+	 * @param {integer} y
+	 * @param {integer} speed_factor
+	 * @return {Sprite}
+	 */
 	window.Sprite.prototype.move = function(x, y, speed_factor) {
 
 		var self = this;
@@ -193,12 +193,22 @@
 
 	};
 
+	/**
+	 * set sprite manager
+	 *
+	 * @return {Sprite}
+	 */
 	window.Sprite.prototype.setManager = function(my_manager) {
 
 		this.manager = my_manager;
 
 	};
 
+	/**
+	 * initialize sprite
+	 *
+	 * @return {Sprite}
+	 */
 	window.Sprite.prototype.init = function(target) {
 
 		return this.initView(target)
@@ -208,10 +218,10 @@
 	};
 
 	/**
-	* set player status of sprite
-	*
-	* @return {Sprite}
-	*/
+	 * set player status of sprite
+	 *
+	 * @return {Sprite}
+	 */
 	window.Sprite.prototype.setPlayer = function(isPlayer) {
 
 		this.properties.sprite_data.player = isPlayer;
@@ -227,10 +237,10 @@
 	};
 
 	/**
-	* get player status of sprite
-	*
-	* @return {boolean}
-	*/
+	 * get player status of sprite
+	 *
+	 * @return {boolean}
+	 */
 	window.Sprite.prototype.isPlayer = function() {
 
 		return this.properties.sprite_data.player;
