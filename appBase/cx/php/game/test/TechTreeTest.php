@@ -41,11 +41,6 @@ class TechTreeTest extends PHPUnit_Framework_TestCase
 		// TODO Auto-generated TechTreeTest::setUp()
 	}
 
-	public function testFails()
-	{
-		$this->assertNotEquals ( true, true );
-	}
-
 	public function testSetName()
 	{
 		$name = 'My Name';
@@ -59,7 +54,7 @@ class TechTreeTest extends PHPUnit_Framework_TestCase
 	protected function tearDown()
 	{
 		// TODO Auto-generated TechTreeTest::tearDown()
-		
+
 		parent::tearDown ();
 	}
 

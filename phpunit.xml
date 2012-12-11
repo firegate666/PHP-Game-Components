@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="appBase/cx/php/game/test/bootstrap.php"
+	backupGlobals="false" backupStaticAttributes="false" strict="false"
+	verbose="true" timeoutForSmallTests="60">
+
+	<testsuite name="Units">
+		<directory suffix=".php">appBase/cx/php/game/test</directory>
+	</testsuite>
+
+	<logging>
+		<log type="coverage-html" target="build/coverage" title="PHP-Game-Components"
+			charset="UTF-8" yui="true" highlight="true" lowUpperBound="35"
+			highLowerBound="70" />
+	</logging>
+
+	<filter>
+		<blacklist>
+			<directory suffix=".php">./appBase/lib</directory>
+			<directory suffix=".php">./build</directory>
+		</blacklist>
+	</filter>
+
+	<selenium>
+		<browser name="Internet Explorer" browser="*iexplore" timeout="10000" />
+		<browser name="Firefox" browser="*firefox" timeout="10000" />
+	</selenium>
+
+</phpunit>

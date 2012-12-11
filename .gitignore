@@ -7,3 +7,13 @@ dist/*.phar*
 
 */js/min/*.min.js
 
+cache.properties
+
+build/api
+build/code-browser
+build/coverage
+build/logs
+build/pdepend
+build/phpdox
+build/todo
+
