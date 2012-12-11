@@ -21,7 +21,8 @@ require_once __DIR__ . '/../appBase/index.php';
 
 use cx\php\game\tools\JavaScriptPacker;
 
-JavaScriptPacker::writePackedJavascript(array(
+$jspacker = new JavaScriptPacker('\lib\JavaScriptPacker');
+$jspacker->writePackedJavascript(array(
 	__DIR__ . '/js/common.js' => __DIR__ . '/js/min/common.min.js',
 	__DIR__ . '/js/sprite_data.js' => __DIR__ . '/js/min/sprite_data.min.js',
 	__DIR__ . '/js/spritemanager.js' => __DIR__ . '/js/min/spritemanager.min.js',

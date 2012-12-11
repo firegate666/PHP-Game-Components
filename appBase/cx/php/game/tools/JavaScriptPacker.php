@@ -21,15 +21,29 @@ namespace cx\php\game\tools;
 class JavaScriptPacker {
 
 	/**
+	 *
+	 * @var string
+	 */
+	protected $packer_class = null;
+
+	/**
+	 *
+	 * @param string $packer_class
+	 */
+	public function __construct($packer_class) {
+		$this->packer_class = $packer_class;
+	}
+
+	/**
 	 * write packed javascript
 	 *
 	 * @param string[] $js_files array key is in file, array value is out file
 	 * @return void
 	 */
-	public static function writePackedJavascript($js_files) {
+	public function writePackedJavascript($js_files) {
 		foreach ($js_files as $js_infile => $js_outfile) {
 			if (!file_exists($js_outfile) || filemtime($js_outfile) < filemtime($js_infile)) {
-				$packer = new lib\JavaScriptPacker(file_get_contents($js_infile), 'Normal', true, false);
+				$packer = new $this->packer_class(file_get_contents($js_infile), 'Normal', true, false);
 				file_put_contents($js_outfile, $packer->pack());
 			}
 		}
