@@ -16,7 +16,7 @@
  *
  **************************************************************************/
 
-define ( 'DEBUG', isset($_GET['dev']));
+define ( 'DEBUG', isset($_GET['__DEBUG__']));
 require_once __DIR__ . '/../appBase/index.php';
 
 use cx\php\game\tools\JavaScriptPacker;
