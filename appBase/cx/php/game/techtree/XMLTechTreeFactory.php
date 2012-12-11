@@ -30,12 +30,13 @@ class XMLTechTreeFactory extends TechTreeFactory
 	 *
 	 * @param $source String
 	 *       	 path to XML
+	 * @param boolean $data_is_url
 	 * @throws TechTreeItemExistsException
 	 * @return TechTree
 	 */
-	public function loadTree($source = null)
+	public function loadTree($source = null, $data_is_url = true)
 	{
-		$xml = new \SimpleXMLElement ( $source, 0, true );
+		$xml = new \SimpleXMLElement ( $source, 0, $data_is_url );
 		$tt = new TechTree ();
 		$tt->setName ( ( string ) $xml ['name'] )
 			->setDescription ( ( string ) $xml->description );
