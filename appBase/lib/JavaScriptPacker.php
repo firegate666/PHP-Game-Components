@@ -65,6 +65,7 @@
  *   UTF-8 in your files...
  */
 
+namespace lib;
 
 class JavaScriptPacker {
 	// constants

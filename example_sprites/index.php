@@ -19,22 +19,18 @@
 define ( 'DEBUG', isset($_GET['dev']));
 require_once __DIR__ . '/../appBase/index.php';
 
-require_once __DIR__ . '/class.JavaScriptPacker.php';
+use cx\php\game\tools\JavaScriptPacker;
 
-function packJS($js_infile, $js_outfile) {
+JavaScriptPacker::writePackedJavascript(array(
+	__DIR__ . '/js/common.js' => __DIR__ . '/js/min/common.min.js',
+	__DIR__ . '/js/sprite_data.js' => __DIR__ . '/js/min/sprite_data.min.js',
+	__DIR__ . '/js/spritemanager.js' => __DIR__ . '/js/min/spritemanager.min.js',
+	__DIR__ . '/js/sprite.js' => __DIR__ . '/js/min/sprite.min.js',
+	__DIR__ . '/js/game.js' => __DIR__ . '/js/min/game.min.js'
+));
 
-	if (!file_exists($js_outfile) || filemtime($js_outfile) < filemtime($js_infile)) {
-		$packer = new JavaScriptPacker(file_get_contents($js_infile), 'Normal', true, false);
-		file_put_contents($js_outfile, $packer->pack());
-	}
-}
-
-packJS(__DIR__ . '/js/common.js', __DIR__ . '/js/min/common.min.js');
-packJS(__DIR__ . '/js/sprite_data.js', __DIR__ . '/js/min/sprite_data.min.js');
-packJS(__DIR__ . '/js/spritemanager.js', __DIR__ . '/js/min/spritemanager.min.js');
-packJS(__DIR__ . '/js/sprite.js', __DIR__ . '/js/min/sprite.min.js');
-packJS(__DIR__ . '/js/game.js', __DIR__ . '/js/min/game.min.js');
 ?>
+
 <!DOCTYPE html>
 <html>
 	<head>
