@@ -67,19 +67,19 @@
 	*/
 	window.SpriteManager.prototype.updateSprites = function() {
 
-		if (this.animation_loop_update === 0) {
-			this.animation_loop_update = new Date().getTime();
-		}
-
 		var self = this;
 
-		window.requestAnimFrame(function(current) {
+		window.requestAnimFrame(function(current_time) {
+
+			if (this.animation_loop_update === 0) {
+				this.animation_loop_update = current_time;
+			}
+
 			var sprite_id,
 				another_sprite_id,
-				delta = current - self.animation_loop_update;
+				time_delta = current_time - self.animation_loop_update;
 
-			if (delta >= 40) {
-
+			if (time_delta >= 40) {
 				for (sprite_id in self.sprites) {
 					if (self.sprites.hasOwnProperty(sprite_id)) {
 						self.sprites[sprite_id].update();
@@ -97,10 +97,10 @@
 				}
 
 				if (self.animation_loop_update) {
-					delta = 40;
+					time_delta = 40;
 				}
 
-				self.animation_loop_update = new Date().getTime() - (delta - 40);
+				self.animation_loop_update = current_time - (time_delta - 40);
 			}
 
 			self.updateSprites();
