@@ -181,6 +181,9 @@
 				queue: true,
 				easing: 'swing',
 				step: function(now, fx) {
+					/*if (self.hasCollision()) {
+						self.stop();
+					}*/
 				},
 				complete: function(now, fx) {
 					self.moving = false;
